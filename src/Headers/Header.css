@@ -1,0 +1,11 @@
+.header {
+  background-color: white;
+}
+
+.header__icon {
+  text-align: left;
+}
+
+.header__menu {
+  text-align: right;
+}
