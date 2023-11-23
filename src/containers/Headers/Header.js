@@ -1,10 +1,11 @@
-import MainMenu from "../Menu/Main_menu";
+import "./Header.css";
+import MainMenu from "../../components/Menu/MainMenu";
 
 function Header(props) {
   return (
     <header className="header">
       <div className="header__icon">
-        <a href="/" class="link_codelia">
+        <a href="/" className="link-codelia">
           메인 화면 이동 아이콘
         </a>
       </div>
