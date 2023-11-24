@@ -1,17 +1,3 @@
 .header {
-  width: auto;
-}
-
-.header__icon {
-  background-color: aqua;
-  width: 50%;
-  height: auto;
-  text-align: left;
-}
-
-.header__menu {
-  background-color: chartreuse;
-  width: 50%;
-  height: auto;
-  text-align: right;
+  background-color: antiquewhite;
 }
