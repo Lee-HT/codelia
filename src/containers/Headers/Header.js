@@ -1,5 +1,5 @@
 import "./Header.css";
-import HeaderMenu from "../../components/Menu/Headers/HeaderMenu";
+import HeaderMenu from "../../components/Menu/Header/HeaderMenu";
 
 function Header(props) {
   return (
