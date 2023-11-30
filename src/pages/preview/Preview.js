@@ -4,20 +4,34 @@ import axios from "axios";
 
 import PostBar from "components/Post/Bar/PostBar";
 
+export const client = axios.create({
+  baseURL: "http://localhost:6550",
+  // timeout: 3000,
+  // headers: {
+  //   // "Content-Type": "application/json",
+  // //   "Access-Control-Allow-Origin": "http://localhost:6551",
+  // //   "Aceess-Control-Allow-Method": "*",
+  // },
+  responseType: "json",
+});
+
 function Preview() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:6550/api/post")
-    .then(response => setPosts(response.data))
-    .catch(error => console.log(error))
+    client
+      .get("api/post")
+      .then((response) => {
+        console.log(response.data)
+        setPosts(response.data)})
+      .catch((error) => console.log(error));
   }, []);
-  
+
   return (
     <div className="Preiview">
-      {posts?.contents?.map((post) => {
+      {posts?.contents?.map((post) => (
         <PostBar key={post.pid} title={post.title} />;
-      })}
+      ))}
     </div>
   );
 }
