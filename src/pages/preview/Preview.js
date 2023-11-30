@@ -22,16 +22,17 @@ function Preview() {
     client
       .get("api/post")
       .then((response) => {
-        console.log(response.data)
-        setPosts(response.data)})
+        console.log(response.data);
+        setPosts(response.data);
+      })
       .catch((error) => console.log(error));
   }, []);
 
   return (
     <div className="Preiview">
-      {posts?.contents?.map((post) => (
-        <PostBar key={post.pid} title={post.title} />;
-      ))}
+      {posts?.contents?.map((post) => {
+        return <PostBar key={post.pid} title={post.title} />;
+      })}
     </div>
   );
 }

@@ -1,8 +1,5 @@
-function PostBar(props){
-    return (<div>
-        {props.key}
-        {props.title}
-    </div>);
+function PostBar(props) {
+  return <div>{props.title}</div>;
 }
 
-export default PostBar
+export default PostBar;
