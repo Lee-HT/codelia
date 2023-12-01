@@ -1,5 +1,6 @@
 import "./Header.css";
 import HeaderMenu from "../../components/Menu/Header/HeaderMenu";
+import Intro from "components/Intro/Intro";
 
 function Header(props) {
   return (
@@ -11,6 +12,9 @@ function Header(props) {
       </div>
       <div className="col-6 d-flex justify-content-end menu">
         <HeaderMenu />
+      </div>
+      <div className="intro">
+        <Intro />
       </div>
     </header>
   );

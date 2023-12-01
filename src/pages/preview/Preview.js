@@ -6,12 +6,7 @@ import PostBar from "components/Post/Bar/PostBar";
 
 export const client = axios.create({
   baseURL: "http://localhost:6550",
-  // timeout: 3000,
-  // headers: {
-  //   // "Content-Type": "application/json",
-  // //   "Access-Control-Allow-Origin": "http://localhost:6551",
-  // //   "Aceess-Control-Allow-Method": "*",
-  // },
+  timeout: 3000,
   responseType: "json",
 });
 
@@ -29,9 +24,18 @@ function Preview() {
   }, []);
 
   return (
-    <div className="Preiview">
+    <div className="container preiview">
       {posts?.contents?.map((post) => {
-        return <PostBar key={post.pid} title={post.title} />;
+        return (
+          <PostBar
+            key={post.pid}
+            category={post.category}
+            title={post.title}
+            uid={post.uid}
+            username={post.username}
+            createdAt={post.createdAt?.substring(0,10)}
+          />
+        );
       })}
     </div>
   );

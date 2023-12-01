@@ -1,0 +1,7 @@
+.intro__image {
+    width: 1100px;
+    height: 200px;
+    margin: auto;
+    background-color: hotpink;
+    object-fit: cover;
+}
