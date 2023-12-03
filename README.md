@@ -1,6 +1,6 @@
 # 프로젝트 설명
 
-###블로그 용 Front End
+### codelia용 FrontEnd
 
 # 개발 환경
 
@@ -9,3 +9,4 @@
 ### Node js 20.9.0
 
 ### React 18.2.0
+

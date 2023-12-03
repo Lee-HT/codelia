@@ -4,7 +4,7 @@ import Intro from "components/Intro/Intro";
 
 function Header(props) {
   return (
-    <header className="row col header">
+    <header className="row header">
       <div className="col-6 d-flex justify-content-start header__icon">
         <a href="/" className="link-mainview">
           메인 화면 이동 아이콘
@@ -13,7 +13,7 @@ function Header(props) {
       <div className="col-6 d-flex justify-content-end menu">
         <HeaderMenu />
       </div>
-      <div className="intro">
+      <div className="col intro">
         <Intro />
       </div>
     </header>
