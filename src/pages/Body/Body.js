@@ -9,7 +9,7 @@ function Body(props) {
       <div className="col-2 menu__main">
         <MainMenu />
       </div>
-      <div className="col-9 d-flex justify-content-center view">
+      <div className="col-9 view">
         <Preview />
       </div>
       <div className="col-1 menu__sub">

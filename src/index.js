@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import axios from "axios";
 import Home from "./containers/Home/Home";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";

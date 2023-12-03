@@ -24,7 +24,7 @@ function Preview() {
   }, []);
 
   return (
-    <div className="container preiview">
+    <div className="preiview">
       {posts?.contents?.map((post) => {
         return (
           <PostBar
