@@ -6,7 +6,7 @@ export default function App() {
   return (
     <Routes>
       <Route index element={<Home/>}></Route>
-      <Route path="/pv" element={<Postview/>}></Route>
+      <Route path="/post" element={<Postview/>}></Route>
     </Routes>
   );
 }

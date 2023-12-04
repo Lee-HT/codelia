@@ -8,24 +8,22 @@ export const client = axios.create({
 });
 
 function Postview() {
-  const [posts, setPosts] = useState([]);
+  const [post, setPost] = useState([]);
 
   useEffect(() => {
     client
       .get("api/post")
       .then((response) => {
         console.log(response.data);
-        setPosts(response.data);
+        setPost(response.data);
       })
       .catch((error) => console.log(error));
   }, []);
 
   return (
     <div className="postview">
-      {posts?.contents?.map((post) => {
-        return (
-          post.pid
-        );
+      {post?.contents?.map((post) => {
+        return <div>Postview</div>
       })}
     </div>
   );
