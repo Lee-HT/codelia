@@ -2,7 +2,7 @@ import "./Header.css";
 import HeaderMenu from "../../components/Menu/Header/HeaderMenu";
 import Intro from "components/Intro/Intro";
 
-function Header(props) {
+export default function Header(props) {
   return (
     <header className="row header">
       <div className="col-6 d-flex justify-content-start header__icon">
@@ -19,5 +19,3 @@ function Header(props) {
     </header>
   );
 }
-
-export default Header;

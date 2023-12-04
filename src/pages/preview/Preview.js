@@ -10,7 +10,7 @@ export const client = axios.create({
   responseType: "json",
 });
 
-function Preview() {
+export default function Preview() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -40,5 +40,3 @@ function Preview() {
     </div>
   );
 }
-
-export default Preview;

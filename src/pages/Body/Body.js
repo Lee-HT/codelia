@@ -3,7 +3,7 @@ import MainMenu from "components/Menu/Main/MainMenu";
 import SubMenu from "components/Menu/Sub/SubMenu";
 import Preview from "pages/Preview/Preview";
 
-function Body(props) {
+export default function Body(props) {
   return (
     <div className="row body">
       <div className="col-2 menu__main">
@@ -18,5 +18,3 @@ function Body(props) {
     </div>
   );
 }
-
-export default Body;

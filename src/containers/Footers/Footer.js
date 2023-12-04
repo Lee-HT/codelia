@@ -1,11 +1,9 @@
 import "./Footer.css"
 
-function Footer(props) {
+export default function Footer(props) {
     return (
         <div className="footer">
             Footer
         </div>
     )
 }
-
-export default Footer;

@@ -1,6 +1,6 @@
 import "./PostBar.css";
 
-function PostBar(props) {
+export default function PostBar(props) {
   return (
     <div className="row border-1 rounded postbar">
       <div className="col-1 bg-secondary opacity-50">{props.category}</div>
@@ -11,5 +11,3 @@ function PostBar(props) {
     </div>
   );
 }
-
-export default PostBar;
