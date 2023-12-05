@@ -1,7 +1,9 @@
-import "./Body.css";
 import MainMenu from "components/Menu/Main/MainMenu";
 import SubMenu from "components/Menu/Sub/SubMenu";
+import PostDetail from "pages/PostDetail/PostDetail";
 import Preview from "pages/Preview/Preview";
+import "./Body.css";
+import { Route, Routes } from "react-router-dom";
 
 export default function Body(props) {
   return (
@@ -10,7 +12,11 @@ export default function Body(props) {
         <MainMenu />
       </div>
       <div className="col-9 view">
-        <Preview />
+        <Routes>
+          <Route path="/" element={<Preview />}></Route>
+          <Route path="/post"></Route>
+          <Route path="/post/:pid" element={<PostDetail />}></Route>
+        </Routes>
       </div>
       <div className="col-1 menu__sub">
         <SubMenu />

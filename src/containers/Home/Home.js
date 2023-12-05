@@ -1,8 +1,8 @@
 import "./Home.css";
 
-import Header from "../Headers/Header";
-import Footer from "../Footers/Footer";
 import Body from "pages/Body/Body";
+import Footer from "../Footers/Footer";
+import Header from "../Headers/Header";
 
 export default function Home() {
   return (
