@@ -1,20 +1,14 @@
 import { useEffect, useState } from "react";
 import "./Preview.css";
-import axios from "axios";
 
 import PostBar from "components/Post/Bar/PostBar";
-
-export const client = axios.create({
-  baseURL: "http://localhost:6550",
-  timeout: 3000,
-  responseType: "json",
-});
+import { api } from "API";
 
 export default function Preview() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    client
+    api
       .get("api/post")
       .then((response) => {
         console.log(response.data);
