@@ -1,0 +1,16 @@
+.box {
+  width: 400px;
+  height: 200px;
+  border-style: solid;
+  border-color: lightskyblue;
+  background-color: lightpink;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.info {
+  width: 100%;
+}

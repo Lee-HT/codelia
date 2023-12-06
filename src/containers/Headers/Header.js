@@ -1,6 +1,6 @@
-import "./Header.css";
-import HeaderMenu from "../../components/Menu/Header/HeaderMenu";
 import Intro from "components/Intro/Intro";
+import HeaderMenu from "../../components/Menu/Header/HeaderMenu";
+import "./Header.css";
 
 export default function Header(props) {
   return (

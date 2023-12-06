@@ -1,8 +1,7 @@
+import { api } from "API";
+import PostBar from "components/Post/Bar/PostBar";
 import { useEffect, useState } from "react";
 import "./Preview.css";
-
-import PostBar from "components/Post/Bar/PostBar";
-import { api } from "API";
 
 export default function Preview() {
   const [posts, setPosts] = useState([]);

@@ -1,9 +1,10 @@
 import MainMenu from "components/Menu/Main/MainMenu";
 import SubMenu from "components/Menu/Sub/SubMenu";
+import NotFound from "pages/Error/404error/NotFound";
 import PostDetail from "pages/PostDetail/PostDetail";
 import Preview from "pages/Preview/Preview";
-import "./Body.css";
 import { Route, Routes } from "react-router-dom";
+import "./Body.css";
 
 export default function Body(props) {
   return (
@@ -16,6 +17,7 @@ export default function Body(props) {
           <Route path="/" element={<Preview />}></Route>
           <Route path="/post"></Route>
           <Route path="/post/:pid" element={<PostDetail />}></Route>
+          <Route path="/*" element={<NotFound />}></Route>
         </Routes>
       </div>
       <div className="col-1 menu__sub">
