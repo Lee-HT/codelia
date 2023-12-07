@@ -1,0 +1,13 @@
+.comment-detail {
+    width: 100%;
+    height: auto;
+    border: 2px solid rgb(255, 184, 193,.5);
+    border-radius: 10px;
+}
+
+.comment-save {
+    width: 100%;
+    height: 150px;
+    border: 3px solid rgb(255, 184, 193);
+    border-radius: 10px;
+}

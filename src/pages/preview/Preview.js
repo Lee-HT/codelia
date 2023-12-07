@@ -8,7 +8,7 @@ export default function Preview() {
 
   useEffect(() => {
     api
-      .get("api/post")
+      .get("post")
       .then((response) => {
         console.log(response.data);
         setPosts(response.data);
@@ -26,7 +26,7 @@ export default function Preview() {
             title={post.title}
             uid={post.uid}
             username={post.username}
-            createdAt={post.createdAt?.substring(0,10)}
+            createdAt={post.createdAt?.substring(0, 10)}
           />
         );
       })}

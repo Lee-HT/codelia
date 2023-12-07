@@ -1,16 +1,16 @@
-import Body from "pages/Body/Body";
+import Contents from "containers/Contents/Contents";
 import Footer from "../Footers/Footer";
 import Header from "../Headers/Header";
 import "./Home.css";
 
 export default function Home() {
   return (
-    <div className="container main">
+    <div className="container home">
       <div>
         <Header />
       </div>
       <div>
-        <Body />
+        <Contents />
       </div>
       <div>
         <Footer />

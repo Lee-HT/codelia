@@ -4,15 +4,15 @@ import NotFound from "pages/Error/404error/NotFound";
 import PostDetail from "pages/PostDetail/PostDetail";
 import Preview from "pages/Preview/Preview";
 import { Route, Routes } from "react-router-dom";
-import "./Body.css";
+import "./Contents.css";
 
-export default function Body(props) {
+export default function Contents() {
   return (
-    <div className="row body">
-      <div className="col-2 menu__main">
+    <div className="row contents-area">
+      <div className="col-2 group-area">
         <MainMenu />
       </div>
-      <div className="col-9 view">
+      <div className="col-9 main-area">
         <Routes>
           <Route path="/" element={<Preview />}></Route>
           <Route path="/post"></Route>
@@ -20,7 +20,7 @@ export default function Body(props) {
           <Route path="/*" element={<NotFound />}></Route>
         </Routes>
       </div>
-      <div className="col-1 menu__sub">
+      <div className="col-1 sub-area">
         <SubMenu />
       </div>
     </div>
