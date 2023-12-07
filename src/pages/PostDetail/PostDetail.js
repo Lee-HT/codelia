@@ -2,7 +2,7 @@ import { api } from "API";
 import PostContents from "components/Post/Detail/Contents/PostContents";
 import PostTitle from "components/Post/Detail/Title/PostTitle";
 import PostCategory from "components/Post/Simple/Category/PostCategory";
-import UserIcon from "components/User/UserIcon";
+import UserProfile from "components/User/Profile/UserIcon";
 import CommentDetail from "pages/CommentDetail/CommentDetail";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -30,8 +30,8 @@ export default function PostDetail() {
       <div className="post-title">
         <PostTitle title={post.title} />
       </div>
-      <div className="post-usericon">
-        <UserIcon username={post.username} />
+      <div className="post-user-profile">
+        <UserProfile username={post.username} />
       </div>
       <div className="post-contents">
         <PostContents contents={post.contents} />

@@ -1,5 +1,9 @@
+.comment-list{
+    border-top: 3px solid rgb(0, 0, 0,.3);
+}
+
 .comment-box {
-    width: 100%;
     height: auto;
+    background-color: aquamarine;
     border-top: 2px solid rgb(255, 184, 193);
 }

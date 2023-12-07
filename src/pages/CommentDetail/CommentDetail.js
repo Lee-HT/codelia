@@ -6,7 +6,7 @@ export default function CommentDetail(props) {
   return (
     <div className="comment-detail">
       <CommentList pid={props.pid} />
-      <CommentSave />
+      <CommentSave pid={props.pid}/>
     </div>
   );
 }

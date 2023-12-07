@@ -16,7 +16,7 @@ export default function CommentList(props) {
   }, [props.pid]);
 
   return (
-    <div className="comment-list">
+    <div className="container comment-list">
       {comments?.contents?.map((comment) => (
         <div className="row comment-box" key={comment.cid}>
           <div className="col-1 comment-cid">{comment.cid}</div>
