@@ -1,4 +1,4 @@
-import { api } from "API";
+import { api, delay } from "API";
 import PostBar from "components/Post/Bar/PostBar";
 import { useEffect, useState } from "react";
 import "./Preview.css";
@@ -7,13 +7,17 @@ export default function Preview() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    api
-      .get("post")
-      .then((response) => {
-        console.log(response.data);
-        setPosts(response.data);
-      })
-      .catch((error) => console.log(error));
+    async function getPosts() {
+      try {
+        const response = await api.get("post");
+        const { data } = response;
+        console.log(data);
+        setPosts(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getPosts();
   }, []);
 
   return (

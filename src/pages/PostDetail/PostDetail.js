@@ -13,13 +13,17 @@ export default function PostDetail() {
   const params = useParams();
 
   useEffect(() => {
-    api
-      .get("post/" + params.pid)
-      .then((response) => {
-        console.log(response.data);
-        setPost(response.data);
-      })
-      .catch((error) => console.log(error));
+    async function getPost() {
+      try {
+        const response = await api.get("post/" + params.pid);
+        const { data } = response;
+        console.log(data);
+        setPost(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getPost();
   }, [params.pid]);
 
   return (

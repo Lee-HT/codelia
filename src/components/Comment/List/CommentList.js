@@ -6,13 +6,17 @@ export default function CommentList(props) {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    api
-      .get("comment/post/" + props.pid)
-      .then((response) => {
-        console.log(response.data);
-        setComments(response.data);
-      })
-      .catch((error) => console.log(error));
+    async function getComments() {
+      try {
+        const response = await api.get("comment/post/" + props.pid);
+        const { data } = response;
+        console.log(data);
+        setComments(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getComments();
   }, [props.pid]);
 
   return (

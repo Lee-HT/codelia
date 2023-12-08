@@ -5,3 +5,12 @@ export const api = axios.create({
   timeout: 3000,
   responseType: "json",
 });
+
+export const delay = function (text,time) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+      console.log(text);
+    }, time);
+  });
+};
