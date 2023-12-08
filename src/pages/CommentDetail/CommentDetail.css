@@ -1,9 +1,12 @@
 .comment-detail {
-    width: 100%;
-    height: auto;
+  width: 800px;
+  border-top: 2px solid rgb(0, 0, 0, 0.2);
+}
+.comment-list {
+    width: 750px;
 }
 
 .comment-save {
-    width: 100%;
-    height: 150px;
+  width: 750px;
+  height: 180px;
 }

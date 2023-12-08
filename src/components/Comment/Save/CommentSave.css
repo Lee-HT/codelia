@@ -1,4 +1,42 @@
 .comment-save {
-  border: 3px solid rgb(255, 184, 193);
+  border: 2px solid rgb(255, 184, 193);
   border-radius: 10px;
+}
+
+.comment-save-username {
+  margin-left: 15px;
+  text-align: start;
+}
+
+.comment-contents-area{
+  width: 700px;
+  height: 100px;
+  resize: none;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+}
+
+.comment__button-area{
+  text-align: end;
+  margin-right: 15px;
+}
+
+.comment-submit{
+  font-size: small;
+  background-color: palegreen;
+  width: 80px;
+  height: 25px;
+  border: none;
+  border-radius: 5px;
+}
+
+.comment-submit-cancel{
+  font-size: small;
+  background-color: antiquewhite;
+  width: 80px;
+  height: 25px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
 }

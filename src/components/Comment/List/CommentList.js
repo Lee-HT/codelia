@@ -22,9 +22,11 @@ export default function CommentList(props) {
   return (
     <div className="container comment-list">
       {comments?.contents?.map((comment) => (
-        <div className="row comment-box" key={comment.cid}>
-          <div className="col-1 comment-cid">{comment.cid}</div>
-          <div className="col-11 comment-contents">{comment.contents}</div>
+        <div className="container comment" key={comment.cid}>
+          <div className="row comment-box">
+            <div className="col-1 comment-cid">{comment.cid}</div>
+            <div className="col-11 comment-contents">{comment.contents}</div>
+          </div>
         </div>
       ))}
     </div>

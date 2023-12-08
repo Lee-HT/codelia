@@ -4,7 +4,7 @@ import "./CommentDetail.css";
 
 export default function CommentDetail(props) {
   return (
-    <div className="comment-detail">
+    <div className="container comment-detail">
       <CommentList pid={props.pid} />
       <CommentSave pid={props.pid}/>
     </div>

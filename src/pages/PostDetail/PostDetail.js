@@ -27,7 +27,7 @@ export default function PostDetail() {
   }, [params.pid]);
 
   return (
-    <div className="post-view">
+    <div className="row post-view">
       <div className="post-category">
         <PostCategory category={post.category} />
       </div>
