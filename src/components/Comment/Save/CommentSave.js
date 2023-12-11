@@ -1,20 +1,40 @@
+import { api } from "API";
 import { useState } from "react";
 import "./CommentSave.css";
 
 export default function CommentSave(props) {
-  const [username, setUsername] = useState("chinokafuu");
   const [comment, setComments] = useState({
-    pid: 0,
-    uid: 0,
-    username: "",
+    pid: props.pid,
+    uid: 1,
+    username: "chinokafuu",
     contents: "",
   });
-  function saveComments() {}
-  function cancelComments() {}
+
+  function handleComment(event) {
+    const { value, name } = event.target;
+    console.log(value);
+    setComments((prev) => ({ ...prev, [name]: value }));
+  }
+
+  async function saveComments() {
+    try {
+      const response = await api.post("comment", comment);
+      const { data } = response;
+      if (response.status === 200) {
+        console.log(data);
+        setComments(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async function cancelComments() {}
+
   return (
     <div className="container comment-save">
       <div className="comment-save-username">
-        <div className="">{username}</div>
+        <div className="">{comment.contents}</div>
+        <div className="">{comment.username}</div>
       </div>
       <div>
         <textarea
@@ -22,6 +42,7 @@ export default function CommentSave(props) {
           type="contents"
           name="contents"
           placeholder="내용"
+          onChange={handleComment}
         ></textarea>
       </div>
       <div className="comment__button-area">
