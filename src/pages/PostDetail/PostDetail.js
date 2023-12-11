@@ -31,11 +31,11 @@ export default function PostDetail() {
       <div className="post-category">
         <PostCategory category={post.category} />
       </div>
-      <div className="post-title">
-        <PostTitle title={post.title} />
-      </div>
       <div className="post-user-profile">
         <UserProfile username={post.username} />
+      </div>
+      <div className="post-title">
+        <PostTitle title={post.title} />
       </div>
       <div className="post-contents">
         <PostContents contents={post.contents} />

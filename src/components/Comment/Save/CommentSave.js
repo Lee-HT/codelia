@@ -28,7 +28,9 @@ export default function CommentSave(props) {
       console.log(error);
     }
   }
-  async function cancelComments() {}
+  async function cancelComments() {
+    setComments((prev) => ({...prev, contents:""}))
+  }
 
   return (
     <div className="container comment-save">
@@ -39,9 +41,9 @@ export default function CommentSave(props) {
       <div>
         <textarea
           className="comment-contents-area"
-          type="contents"
           name="contents"
           placeholder="내용"
+          value={comment.contents}
           onChange={handleComment}
         ></textarea>
       </div>
