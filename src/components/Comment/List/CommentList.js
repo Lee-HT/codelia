@@ -23,9 +23,9 @@ export default function CommentList(props) {
     <div className="container comment-list">
       {comments?.contents?.map((comment) => (
         <div className="comment" key={comment.cid}>
-          <div id="comment-box" className="row comment-box">
+          <div id="comment-box" className="comment-box">
             <div className="col-2 comment-username">{comment.cid}</div>
-            <div className="col-9 comment-contents">{comment.contents}</div>
+            <div className="col comment-contents">{comment.contents}</div>
             <div className="col-1 comment-modify">
               <button className="modify">수정</button>
               <button className="delete">삭제</button>
