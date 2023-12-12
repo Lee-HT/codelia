@@ -1,4 +1,4 @@
-import { api, delay } from "API";
+import { api } from "API";
 import PostBar from "components/Post/Bar/PostBar";
 import { useEffect, useState } from "react";
 import "./Preview.css";
@@ -26,6 +26,7 @@ export default function Preview() {
         return (
           <PostBar
             key={post.pid}
+            pid={post.pid}
             category={post.category}
             title={post.title}
             uid={post.uid}

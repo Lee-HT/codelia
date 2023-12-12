@@ -1,4 +1,23 @@
-.postbar {
-  background-color: dodgerblue;
-  height: 30px;
+.post-bar {
+  max-height: 100%;
+  background-color: lavender;
+  height: 35px;
+  border: 0;
+  outline: 0;
+}
+
+.post-created-date {
+  width: 70%;
+  height: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  background-color:aquamarine;
+}
+
+.post-view-count {
+  background-color: burlywood;
+  width: 30%;
+  height: 100%;
 }

@@ -1,13 +1,24 @@
+import { useNavigate } from "react-router-dom";
 import "./PostBar.css";
 
 export default function PostBar(props) {
+  const navigate = useNavigate();
+
+  function handlePost() {
+    navigate("/post/" + props.pid);
+  }
+
   return (
     <div className="row border-1 rounded post-bar">
-      <div className="col-1 bg-secondary opacity-50">{props.category}</div>
-      <div className="col-6">{props.title}</div>
-      <div className="col-2 bg-secondary opacity-50">{props.username}</div>
-      <div className="col-2">{props.createdAt}</div>
-      <div className="col-1 bg-secondary opacity-50">{props.view}</div>
+      <button className="col-1 bg-secondary">{props.category}</button>
+      <button className="col" onClick={handlePost}>
+        {props.title}
+      </button>
+      <button className="col-2 bg-secondary">{props.username}</button>
+      <div className="row col-2 post-info">
+        <div className="col post-created-date">{props.createdAt}</div>
+        <div className=" post-view-count">{props.view}</div>
+      </div>
     </div>
   );
 }
