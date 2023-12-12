@@ -14,7 +14,7 @@ export default function PostBar(props) {
       <button className="col" onClick={handlePost}>
         {props.title}
       </button>
-      <button className="col-2 bg-secondary">{props.username}</button>
+      <div className="col-2 bg-secondary">{props.username}</div>
       <div className="row col-2 post-info">
         <div className="post-created-date">{props.createdAt}</div>
         <div className="post-view-count">{props.view}</div>

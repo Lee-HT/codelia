@@ -1,7 +1,7 @@
 import MainMenu from "components/Menu/Main/MainMenu";
 import SubMenu from "components/Menu/Sub/SubMenu";
 import NotFound from "pages/Error/404error/NotFound";
-import PostDetail from "pages/PostDetail/PostDetail";
+import PostDetail from "pages/Post/PostDetail/PostDetail";
 import Preview from "pages/Preview/Preview";
 import { Route, Routes } from "react-router-dom";
 import "./Contents.css";
