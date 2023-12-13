@@ -5,14 +5,15 @@ import "./PostList.css";
 
 export default function PostList(props) {
   const [posts, setPosts] = useState([]);
+  const postHeight = "35px";
 
   useEffect(() => {
     async function getPosts() {
       try {
         const params = {
-            page: props.page,
-            size: props.size,
-          };
+          page: props.page,
+          size: props.size,
+        };
         const response = await api.get("post", { params });
         const { data } = response;
         console.log(data);
@@ -22,7 +23,7 @@ export default function PostList(props) {
       }
     }
     getPosts();
-  }, [props.page,props.size]);
+  }, [props.page, props.size]);
 
   return (
     <div className="post-list">
@@ -30,6 +31,7 @@ export default function PostList(props) {
         return (
           <PostBar
             key={post.pid}
+            height={postHeight}
             pid={post.pid}
             category={post.category}
             title={post.title}

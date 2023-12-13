@@ -1,5 +1,14 @@
+import styled from "styled-components";
 import "./UserProfile.css";
 
 export default function UserProfile(props) {
-  return <button className="user-profile">{props.username}</button>;
+  const Button = styled.button`
+    border:0;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  `;
+
+  return <Button className="user-profile">{props.username}</Button>;
 }
