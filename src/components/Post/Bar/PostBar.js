@@ -5,18 +5,21 @@ import UserProfile from "components/User/Profile/UserProfile";
 
 export default function PostBar(props) {
   const navigate = useNavigate();
-  const PostDiv = styled.div((props) => {
-    return {
-      height: props.height || "15px",
-    };
-  });
+  const PostDiv = styled.div`
+    height: ${props.height || "30px"};
+    max-height: ${props.height || "30px"};
+  `;
   const Button = styled.button`
     border: 0;
+    max-height: ${props.height || "30px"};
 
     &:hover {
       text-decoration: underline;
     }
   `;
+  const PostInfo = styled.div`
+    max-height: ${props.height || "30px"};
+  `
 
   function handlePost() {
     navigate("/post/" + props.pid);
@@ -31,10 +34,10 @@ export default function PostBar(props) {
       <div className="col-2 post-user-link">
         <UserProfile username={props.username} />
       </div>
-      <div className="row col-2 post-info">
+      <PostInfo className="row col-2 post-info">
         <div className="post-created-date">{props.createdAt}</div>
         <div className="post-view-count">{props.view}</div>
-      </div>
+      </PostInfo>
     </PostDiv>
   );
 }

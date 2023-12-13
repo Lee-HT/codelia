@@ -1,26 +1,27 @@
 .post-bar {
-  max-height: 100%;
-  background-color: lavender;
+  margin: 5px auto;
+  background-color: rgb(169, 233, 233);
   border: 0;
   outline: 0;
 }
 
 .post-category-link {
+  background-color: transparent;
   font-size: 12px;
 }
 
-.post-title-link{
+.post-title-link {
   background-color: lightsalmon;
 }
 
 .post-created-date {
   width: 70%;
   height: 100%;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   font-size: 10px;
-  background-color:aquamarine;
+  background-color: aquamarine;
 }
 
 .post-view-count {
