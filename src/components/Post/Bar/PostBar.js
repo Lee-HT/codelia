@@ -1,7 +1,7 @@
+import UserProfile from "components/User/Profile/UserProfile";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import "./PostBar.css";
-import UserProfile from "components/User/Profile/UserProfile";
 
 export default function PostBar(props) {
   const navigate = useNavigate();
@@ -11,15 +11,11 @@ export default function PostBar(props) {
   `;
   const Button = styled.button`
     border: 0;
-    max-height: ${props.height || "30px"};
 
     &:hover {
       text-decoration: underline;
     }
   `;
-  const PostInfo = styled.div`
-    max-height: ${props.height || "30px"};
-  `
 
   function handlePost() {
     navigate("/post/" + props.pid);
@@ -32,12 +28,12 @@ export default function PostBar(props) {
         {props.title}
       </Button>
       <div className="col-2 post-user-link">
-        <UserProfile username={props.username} />
+        <UserProfile username={props.username} height={props.height}/>
       </div>
-      <PostInfo className="row col-2 post-info">
+      <div className="row col-2 post-info">
         <div className="post-created-date">{props.createdAt}</div>
         <div className="post-view-count">{props.view}</div>
-      </PostInfo>
+      </div>
     </PostDiv>
   );
 }

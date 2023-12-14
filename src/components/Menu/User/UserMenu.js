@@ -4,6 +4,7 @@ import "./UserMenu.css";
 export default function Usermenu(props) {
   const Button = styled.button`
     border: 0;
+    height: ${props.height};
     width: 100%;
     font-size: 12px;
 
@@ -12,15 +13,17 @@ export default function Usermenu(props) {
     }
   `;
 
+  const buttons = [
+    <Button className="">유저 정보</Button>,
+    <Button className="">작성 게시글</Button>,
+  ];
+
   return (
     <div className="user-menu">
-      <ul>
-        <li>
-          <Button className="">유저 정보</Button>
-        </li>
-        <li>
-          <Button className="">게시글 목록</Button>
-        </li>
+      <ul className="container uls">
+        {buttons?.map((button) => {
+          return <li className="row">{button}</li>;
+        })}
       </ul>
     </div>
   );

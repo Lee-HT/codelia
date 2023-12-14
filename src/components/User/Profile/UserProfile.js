@@ -1,12 +1,13 @@
+import UserMenu from "components/Menu/User/UserMenu";
+import { useState } from "react";
 import styled from "styled-components";
 import "./UserProfile.css";
-import { useState } from "react";
-import Usermenu from "components/Menu/User/UserMenu";
 
 export default function UserProfile(props) {
   const [isMenu, setIsMenu] = useState(false);
   const Button = styled.button`
     border: 0;
+    height: 100%;
 
     &:hover {
       text-decoration: underline;
@@ -22,7 +23,7 @@ export default function UserProfile(props) {
       <Button className="col user-menu-button" onClick={handleMenu}>
         {props.username}
       </Button>
-      {isMenu && <Usermenu className="col"/>}
+      {isMenu && <UserMenu className="col" height={props.height}/>}
     </div>
   );
 }

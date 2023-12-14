@@ -1,4 +1,7 @@
+.user-profile {
+    height: 100%;
+}
+
 .user-menu-button {
-    width: 100%;
-    background-color: lightsteelblue;
+  background-color: lightsteelblue;
 }
