@@ -16,24 +16,31 @@ export default function UserProfile(props) {
   const ref = useRef(null);
   const [isMenu, setIsMenu] = useState(false);
 
-  function handleMenu() {
-    setIsMenu(!isMenu);
-  }
-
-  useEffect(() => {
-    function handleMenuClose(event) {
+  const handleMenuClose = useCallback(
+    (event) => {
       console.log(event.target);
       if (isMenu && (!ref.current || !ref.current.contains(event.target))) {
         console.log("e :" + event.target);
         setIsMenu(false);
       }
-    }
+    },
+    [isMenu]
+  );
 
-    window.addEventListener("click", handleMenuClose);
+  useEffect(() => {
+    if (isMenu) {
+      window.addEventListener("click", handleMenuClose);
+    } else {
+      window.removeEventListener("click", handleMenuClose);
+    }
     return () => {
       window.removeEventListener("click", handleMenuClose);
     };
-  }, [isMenu]);
+  }, [isMenu, handleMenuClose]);
+
+  function handleMenu() {
+    setIsMenu(!isMenu);
+  }
 
   return (
     <div className="row-1 user-profile" ref={ref}>
