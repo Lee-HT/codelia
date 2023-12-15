@@ -1,4 +1,4 @@
-import UserMenu from "components/Menu/User/UserMenu";
+import UserMenu from "components/User/Menu/UserMenu";
 import { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import "./UserProfile.css";

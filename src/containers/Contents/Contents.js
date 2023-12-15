@@ -1,6 +1,7 @@
 import MainMenu from "components/Menu/Main/MainMenu";
 import SubMenu from "components/Menu/Sub/SubMenu";
 import NotFound from "pages/Error/404error/NotFound";
+import Login from "pages/Login/Login";
 import PostDetail from "pages/Post/PostDetail/PostDetail";
 import Preview from "pages/Preview/Preview";
 import { Route, Routes } from "react-router-dom";
@@ -18,6 +19,7 @@ export default function Contents() {
           <Route path="/post"></Route>
           <Route path="/post/:pid" element={<PostDetail />}></Route>
           <Route path="/*" element={<NotFound />}></Route>
+          <Route path="/login" element={<Login />} ></Route>
         </Routes>
       </div>
       <div className="col-1 sub-area">

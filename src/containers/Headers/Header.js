@@ -13,7 +13,7 @@ export default function Header() {
       <div className="col-6 d-flex justify-content-end header-menu">
         <HeaderMenu />
       </div>
-      <div className="col intro">
+      <div className="col intro-image">
         <Intro />
       </div>
     </header>
