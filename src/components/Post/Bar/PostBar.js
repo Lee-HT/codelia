@@ -3,19 +3,20 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import "./PostBar.css";
 
+const PostDiv = styled.div`
+  height: ${(props) => props.height || "30px"};
+  max-height: ${(props) =>props.height || "30px"};
+`;
+const Button = styled.button`
+  border: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 export default function PostBar(props) {
   const navigate = useNavigate();
-  const PostDiv = styled.div`
-    height: ${props.height || "30px"};
-    max-height: ${props.height || "30px"};
-  `;
-  const Button = styled.button`
-    border: 0;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  `;
 
   function handlePost() {
     navigate("/post/" + props.pid);
@@ -28,7 +29,7 @@ export default function PostBar(props) {
         {props.title}
       </Button>
       <div className="col-2 post-user-link">
-        <UserProfile username={props.username} height={props.height}/>
+        <UserProfile username={props.username} height={props.height} />
       </div>
       <div className="row col-2 post-info">
         <div className="post-created-date">{props.createdAt}</div>
