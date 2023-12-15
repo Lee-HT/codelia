@@ -48,8 +48,8 @@ export default function UserProfile(props) {
         {props.username}
       </Button>
       {isMenu && (
-        <div className="col menus">
-          <UserMenu height={props.height} />
+        <div className="col">
+          <UserMenu height={"25px"} width={"100px"} />
         </div>
       )}
     </div>

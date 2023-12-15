@@ -3,12 +3,11 @@ button {
 }
 
 .user-menu {
-  background-color: aquamarine;
   position: relative;
 }
 
 ul {
-  left: 0;
+  left: 50%;
   position: absolute;
 }
 
