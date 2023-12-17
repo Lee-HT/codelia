@@ -29,7 +29,7 @@ export default function CommentSave(props) {
     }
   }
   async function cancelComments() {
-    setComments((prev) => ({...prev, contents:""}))
+    setComments((prev) => ({ ...prev, contents: "" }));
   }
 
   return (
