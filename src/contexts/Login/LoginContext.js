@@ -6,6 +6,7 @@ export default function LoginProvider({ children }) {
   const [userInfo, setUser] = useState({
     isLogin: false,
     username: "LIA",
+    uid: null,
   });
 
   const setUserInfo = useCallback(
