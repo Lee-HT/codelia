@@ -2,21 +2,21 @@ import { createContext, useCallback, useState } from "react";
 
 export const LoginContext = createContext();
 
-export function LoginProvider({ children }) {
+export default function LoginProvider({ children }) {
   const [userInfo, setUser] = useState({
     isLogin: false,
-    username: "LIA"
+    username: "LIA",
   });
 
-  const setUserContext = useCallback(
-    (key,value) => {
+  const setUserInfo = useCallback(
+    (key, value) => {
       setUser((prev) => ({ ...prev, [key]: value }));
     },
-    []
+    [setUser]
   );
 
   return (
-    <LoginContext.Provider value={{ userInfo, setUserContext }}>
+    <LoginContext.Provider value={{ userInfo, setUserInfo }}>
       {children}
     </LoginContext.Provider>
   );

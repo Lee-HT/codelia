@@ -3,11 +3,11 @@ import { useContext, useEffect } from "react";
 import "./Login.css";
 
 export default function Login() {
-  const { userInfo, setUserContext } = useContext(LoginContext);
+  const { userInfo, setUserInfo } = useContext(LoginContext);
 
   useEffect(() => {
-    setUserContext("isLogin", true);
-  }, [setUserContext]);
+    setUserInfo("isLogin", true);
+  }, [setUserInfo]);
 
   return (
     <div>

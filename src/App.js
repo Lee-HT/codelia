@@ -1,4 +1,5 @@
-import { LoginProvider } from "contexts/Login/LoginContext";
+import LoginProvider from "contexts/Login/LoginContext";
+import TokenProvider from "contexts/Login/TokenContext";
 import { createElement } from "react";
 
 const { default: Home } = require("containers/Home/Home");
@@ -14,7 +15,7 @@ function ContextProvider({ contexts, children }) {
   );
 }
 
-const contextArray = [LoginProvider];
+const contextArray = [LoginProvider, TokenProvider];
 
 export default function App() {
   return (
