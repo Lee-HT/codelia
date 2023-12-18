@@ -1,4 +1,4 @@
-import { LoginContext, LoginProvider } from "Context/Login/LoginContext";
+import { LoginProvider } from "contexts/Login/LoginContext";
 import { createElement } from "react";
 
 const { default: Home } = require("containers/Home/Home");
@@ -14,7 +14,7 @@ function ContextProvider({ contexts, children }) {
   );
 }
 
-const contextArray = [LoginContext];
+const contextArray = [LoginProvider];
 
 export default function App() {
   return (
@@ -22,9 +22,9 @@ export default function App() {
       <Route
         path="/*"
         element={
-          <LoginProvider>
+          <ContextProvider contexts={contextArray}>
             <Home />
-          </LoginProvider>
+          </ContextProvider>
         }
       ></Route>
     </Routes>

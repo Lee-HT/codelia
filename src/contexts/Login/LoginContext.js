@@ -1,7 +1,6 @@
 import { createContext, useCallback, useState } from "react";
 
 export const LoginContext = createContext();
-LoginContext.displayName = "LIA";
 
 export function LoginProvider({ children }) {
   const [userInfo, setUser] = useState({
@@ -13,7 +12,7 @@ export function LoginProvider({ children }) {
     (key,value) => {
       setUser((prev) => ({ ...prev, [key]: value }));
     },
-    [userInfo]
+    []
   );
 
   return (
