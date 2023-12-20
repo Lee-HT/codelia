@@ -4,16 +4,19 @@ import { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import "./PostList.css";
 
-export default function PostList(props) {
-  const Button = styled.button`
-    height: 80%;
-    border: 0;
-    background-color: transparent;
+const Button = styled.button`
+  height: 80%;
+  border: 0;
+  background-color: transparent;
+  font-size: 12px;
 
-    &:hover {
-      text-decoration: underline;
-    }
-  `;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export default function PostList(props) {
+  const sizeList = [5, 10, 15, 20, 25, 30];
 
   const [posts, setPosts] = useState([]);
   const [params, setParams] = useState({
@@ -21,14 +24,6 @@ export default function PostList(props) {
     size: props.size,
   });
   const postHeight = props.height || "35px";
-
-  const setPageSize = useCallback((size) => {
-    try {
-      setParams((prev) => ({ ...prev, "size": size }));
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
 
   useEffect(() => {
     async function getPosts() {
@@ -47,18 +42,30 @@ export default function PostList(props) {
     getPosts();
   }, [params]);
 
-  const sizeList = [15, 30];
+  const setPageSize = useCallback((size) => {
+    try {
+      setParams((prev) => ({ ...prev, size: size }));
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
 
   return (
     <div className="post-list">
       <div className="post-page">
-        {sizeList?.map((size, index) => {
-          return (
-            <Button key={index} onClick={() => setPageSize(size)}>
-              {size}
-            </Button>
-          );
-        })}
+        <select
+          className="post-size"
+          value={params.size}
+          onChange={(event) => setPageSize(event.target.value)}
+        >
+          {sizeList?.map((size) => {
+            return (
+              <option key={size} value={size}>
+                {size + "개"}
+              </option>
+            );
+          })}
+        </select>
       </div>
       {posts?.contents?.map((post) => {
         return (

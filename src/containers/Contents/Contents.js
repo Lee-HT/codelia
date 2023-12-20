@@ -18,6 +18,7 @@ export default function Contents() {
         <Routes>
           <Route path="/" element={<Preview />}></Route>
           <Route path="/post" element={<Postview />}></Route>
+          <Route path="/post/category/*" element={<Postview />}></Route>
           <Route path="/post/:pid" element={<PostDetail />}></Route>
           <Route path="/*" element={<NotFound />}></Route>
           <Route path="/login" element={<Login />}></Route>

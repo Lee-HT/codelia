@@ -1,6 +1,11 @@
 .post-page {
-  height: 30px;
+  height: 40px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+.post-size{
+  width: 50px;
+  height: 35px;
 }

@@ -20,7 +20,6 @@ export default function UserProfile(props) {
     (event) => {
       console.log(event.target);
       if (isMenu && (!ref.current || !ref.current.contains(event.target))) {
-        console.log("e :" + event.target);
         setIsMenu(false);
       }
     },
@@ -39,12 +38,12 @@ export default function UserProfile(props) {
   }, [isMenu, handleMenuClose]);
 
   function handleMenu() {
-    setIsMenu(!isMenu);
+    setIsMenu(true);
   }
 
   return (
-    <div className="row-1 user-profile" ref={ref}>
-      <Button className="col user-menu-button" onClick={handleMenu}>
+    <div className="row user-profile" ref={ref}>
+      <Button className="col-12 user-menu-button" onClick={handleMenu}>
         {props.username}
       </Button>
       {isMenu && (

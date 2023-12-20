@@ -3,5 +3,8 @@
 }
 
 .user-menu-button {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   background-color: lightsteelblue;
 }
