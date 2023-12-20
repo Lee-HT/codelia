@@ -1,9 +1,9 @@
 import { api } from "API";
-import PostContents from "components/Post/Detail/Contents/PostContents";
-import PostTitle from "components/Post/Detail/Title/PostTitle";
-import PostCategory from "components/Post/Simple/Category/PostCategory";
+import PostContents from "components/Post/Bar/Contents/PostContents";
+import PostTitle from "components/Post/Bar/Title/PostTitle";
+import PostCategory from "components/Post/Bar/Category/PostCategory";
 import UserProfile from "components/User/Profile/UserProfile";
-import CommentDetail from "pages/Comment/CommentDetail/CommentDetail";
+import CommentDetail from "components/Comment/CommentDetail/CommentDetail";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./PostDetail.css";

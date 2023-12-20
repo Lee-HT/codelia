@@ -1,4 +1,4 @@
-import CommentList from "pages/Comment/List/CommentList";
+import CommentList from "components/Comment/List/CommentList";
 import CommentSave from "components/Comment/Save/CommentSave";
 import "./CommentDetail.css";
 
