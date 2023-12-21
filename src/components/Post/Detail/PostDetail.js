@@ -1,7 +1,7 @@
 import { api } from "API";
-import PostContents from "components/Post/Bar/Contents/PostContents";
-import PostTitle from "components/Post/Bar/Title/PostTitle";
-import PostCategory from "components/Post/Bar/Category/PostCategory";
+import PostContents from "components/Post/Detail/Contents/PostContents";
+import PostTitle from "components/Post/Detail/Title/PostTitle";
+import PostCategory from "components/Post/Detail/Category/PostCategory";
 import UserProfile from "components/User/Profile/UserProfile";
 import CommentDetail from "components/Comment/CommentDetail/CommentDetail";
 import { useEffect, useState } from "react";
@@ -28,20 +28,20 @@ export default function PostDetail() {
 
   return (
     <div className="row post-view">
-      <div className="post-category">
+      <div className="col-12 post-category">
         <PostCategory category={post.category} />
       </div>
-      <div className="post-user-profile">
+      <div className="col-12 post-user-profile">
         <UserProfile username={post.username} />
       </div>
-      <div className="post-title">
+      <div className="col-12 post-title">
         <PostTitle title={post.title} />
       </div>
-      <div className="post-contents">
+      <div className="col-12 post-contents">
         <PostContents contents={post.contents} />
       </div>
 
-      <div className="post__comments">
+      <div className="col-12 post__comments">
         <CommentDetail pid={params.pid} />
       </div>
     </div>
