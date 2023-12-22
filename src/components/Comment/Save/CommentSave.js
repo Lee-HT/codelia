@@ -1,60 +1,62 @@
 import { api } from "API";
-import { useState } from "react";
+import { LoginContext } from "contexts/Login/LoginContext";
+import { useContext, useEffect } from "react";
+import { useForm } from "react-hook-form";
 import "./CommentSave.css";
 
 export default function CommentSave(props) {
-  const [comment, setComments] = useState({
-    pid: props.pid,
-    uid: 1,
-    username: "chinokafuu",
-    contents: "",
+  const { userInfo, setUserInfo } = useContext(LoginContext);
+  const { register, watch, handleSubmit } = useForm();
+
+  useEffect(() => {
+    console.log(watch());
   });
 
-  function handleComment(event) {
-    const { value, name } = event.target;
-    console.log(value);
-    setComments((prev) => ({ ...prev, [name]: value }));
-  }
-
-  async function saveComments() {
+  async function saveComments(data, event) {
+    event.preventDefault();
+    console.log(data);
+    const param = data;
+    const { username, uid } = userInfo;
+    const pid = props.pid;
     try {
-      const response = await api.post("comment", comment);
+      const response = await api.post("comment", {
+        ...param,
+        pid: pid,
+        uid: uid,
+        username: username,
+      });
       const { data } = response;
       if (response.status === 200) {
         console.log(data);
-        setComments(data);
       }
     } catch (error) {
       console.log(error);
     }
   }
-  async function cancelComments() {
-    setComments((prev) => ({ ...prev, contents: "" }));
-  }
+  async function cancelComments() {}
 
   return (
     <div className="container comment-save">
-      <div className="comment-save-username">
-        <div className="">{comment.contents}</div>
-        <div className="">{comment.username}</div>
+      <div className="comment-username">
+        <div className="">{userInfo.username}</div>
       </div>
-      <div>
-        <textarea
-          className="comment-contents-area"
-          name="contents"
-          placeholder="내용"
-          value={comment.contents}
-          onChange={handleComment}
-        ></textarea>
-      </div>
-      <div className="comment__button-area">
-        <button className="comment-submit" onClick={saveComments}>
-          등록
-        </button>
-        <button className="comment-submit-cancel" onClick={cancelComments}>
-          취소
-        </button>
-      </div>
+      <form onSubmit={handleSubmit(saveComments)}>
+        <div>
+          <textarea
+            className="comment-contents-area"
+            {...register("contents", { required: true })}
+            placeholder="내용"
+          ></textarea>
+        </div>
+        <div className="comment__button-area">
+          <button className="comment-submit" type="submit">
+            등록
+          </button>
+          <button className="comment-submit-cancel" onClick={cancelComments}>
+            취소
+          </button>
+        </div>
+      </form>
     </div>
   );
 }

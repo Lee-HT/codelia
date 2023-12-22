@@ -16,7 +16,6 @@ export default function HeaderMenu() {
   function handleLogin() {
     navigate("/login");
   }
-
   function handleMypage() {
 
   }

@@ -5,8 +5,8 @@ export const LoginContext = createContext();
 export default function LoginProvider({ children }) {
   const [userInfo, setUser] = useState({
     isLogin: false,
-    username: "LIA",
-    uid: null,
+    username: "chinokafuu",
+    uid: 1,
   });
 
   const setUserInfo = useCallback(

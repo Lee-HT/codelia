@@ -1,5 +1,6 @@
 import LoginProvider from "contexts/Login/LoginContext";
 import TokenProvider from "contexts/Login/TokenContext";
+import LoginRedirect from "pages/Login/Redirect/LoginRedirect";
 import { createElement } from "react";
 
 const { default: Home } = require("containers/Home/Home");
@@ -28,6 +29,7 @@ export default function App() {
           </ContextProvider>
         }
       ></Route>
+      <Route path="/oauth2/redirect" element={<LoginRedirect />}></Route>
     </Routes>
   );
 }
