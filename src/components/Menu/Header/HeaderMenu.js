@@ -11,18 +11,16 @@ const Button = styled.button`
 
 export default function HeaderMenu() {
   const navigate = useNavigate();
-  const { userInfo, setUserInfo } = useContext(LoginContext);
+  const { userInfo } = useContext(LoginContext);
 
   function handleLogin() {
     navigate("/login");
   }
-  function handleMypage() {
-
-  }
+  function handleMypage() {}
 
   useEffect(() => {
     console.log(userInfo);
-  },[userInfo]);
+  }, [userInfo]);
 
   return (
     <div className="header-menu">

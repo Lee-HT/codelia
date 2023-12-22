@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react";
 import "./Login.css";
 
 export default function Login() {
-  const { userInfo, setUserInfo } = useContext(LoginContext);
+  const { userInfo } = useContext(LoginContext);
 
   useEffect(() => {});
 

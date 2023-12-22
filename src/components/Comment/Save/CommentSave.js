@@ -5,8 +5,8 @@ import { useForm } from "react-hook-form";
 import "./CommentSave.css";
 
 export default function CommentSave(props) {
-  const { userInfo, setUserInfo } = useContext(LoginContext);
-  const { register, watch, handleSubmit } = useForm();
+  const { userInfo } = useContext(LoginContext);
+  const { register, watch, handleSubmit, reset } = useForm();
 
   useEffect(() => {
     console.log(watch());
@@ -15,25 +15,21 @@ export default function CommentSave(props) {
   async function saveComments(data, event) {
     event.preventDefault();
     console.log(data);
-    const param = data;
     const { username, uid } = userInfo;
     const pid = props.pid;
+    const param = { ...data, pid: pid, uid: uid, username: username };
     try {
-      const response = await api.post("comment", {
-        ...param,
-        pid: pid,
-        uid: uid,
-        username: username,
-      });
+      const response = await api.post("comment", param);
       const { data } = response;
       if (response.status === 200) {
         console.log(data);
+        reset();
+        props.saved(true);
       }
     } catch (error) {
       console.log(error);
     }
   }
-  async function cancelComments() {}
 
   return (
     <div className="container comment-save">
@@ -52,7 +48,7 @@ export default function CommentSave(props) {
           <button className="comment-submit" type="submit">
             등록
           </button>
-          <button className="comment-submit-cancel" onClick={cancelComments}>
+          <button className="comment-submit-cancel" type="reset">
             취소
           </button>
         </div>
