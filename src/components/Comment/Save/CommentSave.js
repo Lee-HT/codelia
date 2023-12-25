@@ -1,25 +1,21 @@
 import { api } from "API";
 import { LoginContext } from "contexts/Login/LoginContext";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import "./CommentSave.css";
 
 export default function CommentSave(props) {
   const { userInfo } = useContext(LoginContext);
-  const { register, watch, handleSubmit, reset } = useForm();
-
-  useEffect(() => {
-    console.log(watch());
-  });
+  const { register, handleSubmit, reset } = useForm();
 
   async function saveComments(data, event) {
     event.preventDefault();
-    console.log(data);
+    console.log("save : " + data);
     const { username, uid } = userInfo;
     const pid = props.pid;
-    const param = { ...data, pid: pid, uid: uid, username: username };
+    const params = { ...data, pid: pid, uid: uid, username: username };
     try {
-      const response = await api.post("comment", param);
+      const response = await api.post("comment", params);
       const { data } = response;
       if (response.status === 200) {
         console.log(data);

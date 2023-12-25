@@ -10,14 +10,14 @@ export default function CommentList(props) {
       try {
         const response = await api.get("comment/post/" + props.pid);
         const { data } = response;
-        console.log(data);
+        console.log("comment_list : " + data);
         setComments(data);
       } catch (error) {
         console.log(error);
       }
     }
     getComments();
-  }, [props.pid]);
+  }, [props.pid,props.saved]);
 
   return (
     <div className="container comment-list">
