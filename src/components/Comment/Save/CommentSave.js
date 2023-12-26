@@ -14,13 +14,14 @@ export default function CommentSave(props) {
     const { username, uid } = userInfo;
     const pid = props.pid;
     const params = { ...data, pid: pid, uid: uid, username: username };
+    
     try {
       const response = await api.post("comment", params);
       const { data } = response;
       if (response.status === 200) {
         console.log(data);
         reset();
-        props.saved(true);
+        props.setIsSaved(!props.isSaved);
       }
     } catch (error) {
       console.log(error);

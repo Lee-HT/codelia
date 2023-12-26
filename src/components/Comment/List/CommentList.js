@@ -1,23 +1,27 @@
 import { api } from "API";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./CommentList.css";
 
 export default function CommentList(props) {
   const [comments, setComments] = useState([]);
+  const params = useMemo(() => {
+    return { page: props.currentPage, size: props.size };
+  }, [props]);
 
   useEffect(() => {
     async function getComments() {
       try {
-        const response = await api.get("comment/post/" + props.pid);
+        const response = await api.get("comment/post/" + props.pid, { params });
         const { data } = response;
         console.log("comment_list : " + data);
         setComments(data);
+        props.setTotalPage(data.totalPages);
       } catch (error) {
         console.log(error);
       }
     }
     getComments();
-  }, [props.pid,props.saved]);
+  }, [props, params]);
 
   return (
     <div className="container comment-list">
