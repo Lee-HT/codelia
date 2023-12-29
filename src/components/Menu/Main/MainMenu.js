@@ -4,8 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Button = styled.button`
+  width: 100%;
   border: 0;
-  background-color: transparents;
+  border-radius: 5px;
+  background-color: white;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export default function MainMenu() {

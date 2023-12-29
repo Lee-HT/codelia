@@ -42,15 +42,11 @@ export default function UserProfile(props) {
   }
 
   return (
-    <div className="row user-profile" ref={ref}>
-      <Button className="col-12 user-menu-button" onClick={handleMenu}>
+    <div className="user-profile" ref={ref}>
+      <Button className="user-menu-button" onClick={handleMenu}>
         {props.username}
       </Button>
-      {isMenu && (
-        <div className="col">
-          <UserMenu height={"25px"} width={"100px"} />
-        </div>
-      )}
+      {isMenu && <UserMenu height={"25px"} width={"100px"} />}
     </div>
   );
 }

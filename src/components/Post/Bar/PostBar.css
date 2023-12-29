@@ -10,17 +10,11 @@
 }
 
 .post-category-link {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   background-color: transparent;
   font-size: 12px;
 }
 
 .post-title-link {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   background-color: lightsalmon;
 }
 

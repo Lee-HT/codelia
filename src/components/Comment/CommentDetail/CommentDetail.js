@@ -19,7 +19,7 @@ export default function CommentDetail(props) {
       <CommentList
         pid={props.pid}
         currentPage={currentPage - 1}
-        size={1}
+        size={5}
         isSaved={isSaved}
         setTotalPage={setTotalPage}
       />

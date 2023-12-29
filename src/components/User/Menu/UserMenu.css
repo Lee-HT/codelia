@@ -1,16 +1,7 @@
-button {
-  background-color: white;
-}
-
 .user-menu {
-  position: relative;
-}
-
-ul {
+  width: 90%;
   left: 50%;
+  transform: translateX(-50%);
   position: absolute;
-}
-
-li {
-  list-style: none;
+  z-index: 1;
 }

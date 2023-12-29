@@ -8,6 +8,7 @@ const PostDiv = styled.div`
   max-height: ${(props) =>props.height || "30px"};
 `;
 const Button = styled.button`
+
   border: 0;
 
   &:hover {

@@ -26,6 +26,7 @@ const initialState = {
   after: 0,
 };
 
+// props : currentPage , setCurrentPage , totalPage , limit
 export default function Pagination(props) {
   const [state,dispatch] = useReducer(reducer,initialState);
 
@@ -36,7 +37,6 @@ export default function Pagination(props) {
         totalPage: props.totalPage,
         limit: props.limit
       })
-      console.log(state.pageNumbers);
     }
     setNumbers();
   }, [props]);

@@ -2,16 +2,27 @@ import styled from "styled-components";
 import "./UserMenu.css";
 
 const Ul = styled.ul`
-  height: ${(props) => props.height}
-  width: ${(props) => props.width}
+  padding: 0;
+  margin: 0;
+  background-color: white;
+`;
+
+const Li = styled.li`
+  background-color: transparent;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 `;
 
 const Button = styled.button`
+  margin: 1px auto;
+  padding:0;
   border: 0;
-  height: ${(props) => props.height};
-  width: ${(props) => props.width};
-  font-size: 12px;
-  transform: translateX(-50%);
+  border-radius: 3px;
+  font-size: 13px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
 
   &:hover {
     text-decoration: underline;
@@ -19,24 +30,13 @@ const Button = styled.button`
 `;
 
 export default function Usermenu(props) {
-  const buttons = [
-    <Button height={props.height} width={props.width}>
-      유저 정보
-    </Button>,
-    <Button height={props.height} width={props.width}>
-      작성 게시글
-    </Button>,
-  ];
+  const buttons = [<Button>유저 정보</Button>, <Button>작성 게시글</Button>];
 
   return (
-    <div className="row user-menu">
-      <Ul className="container" height={props.height} width={props.width}>
+    <div className="user-menu">
+      <Ul className="user-menu-contents">
         {buttons?.map((button, index) => {
-          return (
-            <li className="row" key={index}>
-              {button}
-            </li>
-          );
+          return <Li key={index}>{button}</Li>;
         })}
       </Ul>
     </div>

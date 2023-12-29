@@ -1,23 +1,15 @@
 import { api } from "API";
+import Pagination from "components/Menu/Page/Pagination";
 import PostBar from "components/Post/Bar/PostBar";
 import { useCallback, useEffect, useState } from "react";
-import styled from "styled-components";
 import "./PostList.css";
-
-const Button = styled.button`
-  height: 80%;
-  border: 0;
-  background-color: transparent;
-  font-size: 12px;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
 
 export default function PostList(props) {
   const sizeList = [5, 10, 15, 20, 25, 30];
 
+  const pageLimit = 5;
+  const [currentPage, setCurrentPage] = useState(props.page + 1);
+  const [totalPage, setTotalPage] = useState(0);
   const [posts, setPosts] = useState([]);
   const [params, setParams] = useState({
     page: props.page,
@@ -26,11 +18,16 @@ export default function PostList(props) {
   const postHeight = props.height || "35px";
 
   useEffect(() => {
+    params.page = currentPage - 1;
+  }, [params, currentPage]);
+
+  useEffect(() => {
     async function getPosts() {
       try {
         console.log(params);
         const response = await api.get("post", { params });
         const { data } = response;
+        setTotalPage(data.totalPages);
         if (response.status === 200) {
           console.log(data);
           setPosts(data);
@@ -40,9 +37,9 @@ export default function PostList(props) {
       }
     }
     getPosts();
-  }, [params]);
+  }, [params,currentPage]);
 
-  const setPageSize = useCallback((size) => {
+  const setSize = useCallback((size) => {
     try {
       setParams((prev) => ({ ...prev, size: size }));
     } catch (error) {
@@ -56,7 +53,7 @@ export default function PostList(props) {
         <select
           className="post-size"
           value={params.size}
-          onChange={(event) => setPageSize(event.target.value)}
+          onChange={(event) => setSize(event.target.value)}
         >
           {sizeList?.map((size) => {
             return (
@@ -81,6 +78,21 @@ export default function PostList(props) {
           />
         );
       })}
+      <PostBar
+            height={postHeight}
+            pid={1}
+            category={"category1"}
+            title={"title1"}
+            uid={1}
+            username={"username"}
+            createdAt={"2023-12-13"?.substring(0, 10)}
+          />
+      <Pagination
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        totalPage={totalPage}
+        limit={pageLimit}
+      />
     </div>
   );
 }
