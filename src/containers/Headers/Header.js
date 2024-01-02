@@ -9,7 +9,11 @@ export default function Header() {
     <header className="row header">
       <div className="col-6 header-icon">
         <div className="header-link">
-          <button onClick={() => {navigate("/")}}>
+          <button
+            onClick={() => {
+              navigate("/");
+            }}
+          >
             메인 화면 이동 아이콘
           </button>
         </div>

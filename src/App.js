@@ -1,5 +1,4 @@
 import LoginProvider from "contexts/Login/LoginContext";
-import TokenProvider from "contexts/Login/TokenContext";
 import LoginRedirect from "pages/Login/Redirect/LoginRedirect";
 import { createElement } from "react";
 
@@ -16,7 +15,7 @@ function ContextProvider({ contexts, children }) {
   );
 }
 
-const contextArray = [LoginProvider, TokenProvider];
+const contextArray = [LoginProvider];
 
 export default function App() {
   return (
