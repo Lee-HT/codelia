@@ -1,0 +1,6 @@
+.post__likes {
+  height: 40px;
+  display: flex;
+  flex-direction: row-reverse;
+  padding-right: 75px;
+}

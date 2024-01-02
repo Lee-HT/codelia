@@ -4,7 +4,9 @@ export const api = axios.create({
   baseURL: process.env.REACT_APP_HOST + "/api",
   timeout: 3000,
   responseType: "json",
-  withCredentials: true,
+  headers: {
+    Authorization: "token",
+  },
 });
 
 export const delay = function (text, time) {

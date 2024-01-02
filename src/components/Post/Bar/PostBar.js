@@ -5,10 +5,12 @@ import "./PostBar.css";
 
 const PostDiv = styled.div`
   height: ${(props) => props.height || "30px"};
-  max-height: ${(props) =>props.height || "30px"};
+  max-height: ${(props) => props.height || "30px"};
 `;
 const Button = styled.button`
-
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   border: 0;
 
   &:hover {

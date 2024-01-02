@@ -1,15 +1,19 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { TokenContext } from "contexts/Login/TokenContext";
+import { useContext, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export default function LoginRedirect() {
-  const { params } = useParams();
+  const [params] = useSearchParams();
+  const { tokens, setTokens } = useContext(TokenContext);
+  const navigate = useNavigate();
 
-  const [tokens, setTokens] = useState("");
   useEffect(() => {
-    setTokens("headers : " + params.Authorization);
+    setTokens("accessToken", params.get("authorization"));
+    navigate("/");
+
     // 방문 히스토리 저장 X
     // window.location.replace("/");
-  }, [params,setTokens]);
+  }, [params, setTokens, navigate]);
 
-  return <div>{tokens}</div>;
+  return <div></div>;
 }

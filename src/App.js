@@ -20,16 +20,11 @@ const contextArray = [LoginProvider, TokenProvider];
 
 export default function App() {
   return (
-    <Routes>
-      <Route
-        path="/*"
-        element={
-          <ContextProvider contexts={contextArray}>
-            <Home />
-          </ContextProvider>
-        }
-      ></Route>
-      <Route path="/oauth2/redirect" element={<LoginRedirect />}></Route>
-    </Routes>
+    <ContextProvider contexts={contextArray}>
+      <Routes>
+        <Route path="/*" element={<Home />}></Route>
+        <Route path="/oauth2/redirect" element={<LoginRedirect />}></Route>
+      </Routes>
+    </ContextProvider>
   );
 }

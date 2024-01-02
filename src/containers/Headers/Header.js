@@ -1,15 +1,17 @@
 import Intro from "components/Intro/Intro";
 import HeaderMenu from "../../components/Menu/Header/HeaderMenu";
 import "./Header.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const navigate = useNavigate();
   return (
     <header className="row header">
       <div className="col-6 header-icon">
         <div className="header-link">
-          <a href="/" className="header-link-icon">
+          <button onClick={() => {navigate("/")}}>
             메인 화면 이동 아이콘
-          </a>
+          </button>
         </div>
       </div>
       <div className="col-6 header-menu">

@@ -7,6 +7,7 @@ import CommentDetail from "components/Comment/CommentDetail/CommentDetail";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./PostDetail.css";
+import PostLikes from "./Likes/PostLikes";
 
 export default function PostDetail() {
   const [post, setPost] = useState([]);
@@ -41,6 +42,9 @@ export default function PostDetail() {
         <PostContents contents={post.contents} />
       </div>
 
+      <div className="col-12 post__likes">
+        <PostLikes pid={params.pid}/>
+      </div>
       <div className="col-12 post__comments">
         <CommentDetail pid={params.pid} />
       </div>

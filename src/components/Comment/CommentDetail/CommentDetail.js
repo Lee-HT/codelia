@@ -1,6 +1,6 @@
 import CommentList from "components/Comment/List/CommentList";
 import CommentSave from "components/Comment/Save/CommentSave";
-import Pagination from "components/Menu/Page/Pagination";
+import Pagination from "components/Menu/Pagination/Pagination";
 import { useEffect, useState } from "react";
 import "./CommentDetail.css";
 

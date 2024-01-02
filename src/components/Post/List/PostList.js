@@ -1,5 +1,5 @@
 import { api } from "API";
-import Pagination from "components/Menu/Page/Pagination";
+import Pagination from "components/Menu/Pagination/Pagination";
 import PostBar from "components/Post/Bar/PostBar";
 import { useCallback, useEffect, useState } from "react";
 import "./PostList.css";
@@ -37,7 +37,7 @@ export default function PostList(props) {
       }
     }
     getPosts();
-  }, [params,currentPage]);
+  }, [params, currentPage]);
 
   const setSize = useCallback((size) => {
     try {
@@ -78,15 +78,6 @@ export default function PostList(props) {
           />
         );
       })}
-      <PostBar
-            height={postHeight}
-            pid={1}
-            category={"category1"}
-            title={"title1"}
-            uid={1}
-            username={"username"}
-            createdAt={"2023-12-13"?.substring(0, 10)}
-          />
       <Pagination
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
