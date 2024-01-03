@@ -1,0 +1,28 @@
+name: CI/CD
+
+# 지정한 branch ([master])에서 command(pull)가 수행되면 이 workflow가 동작
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+  # trigger 없어도 수동으로 동작
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: checkout release
+        uses: actions/checkout@v3
+  
+      # touch 명령어로 빈 파일 생성
+      # echo 명령어로 파일 덮어쓰기
+      - name: .env
+        run: touch .env.local
+      - run: echo "${{secrets.ENV_LOCAL}}" > .env.local
+      - run: touch .env.production
+      - run: echo "${{secrets.ENV_PRODUCTION}}" > .env.production
