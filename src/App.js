@@ -1,4 +1,5 @@
 import LoginProvider from "contexts/Login/LoginContext";
+import NotFound from "pages/Error/404error/NotFound";
 import LoginRedirect from "pages/Login/Redirect/LoginRedirect";
 import { createElement } from "react";
 
@@ -21,8 +22,11 @@ export default function App() {
   return (
     <ContextProvider contexts={contextArray}>
       <Routes>
-        <Route path="/*" element={<Home />}></Route>
-        <Route path="/oauth2/redirect" element={<LoginRedirect />}></Route>
+        <Route path={process.env.PUBLIC_URL+"/*"}>
+          <Route path="oauth2/redirect" element={<LoginRedirect />}></Route>
+          <Route path="*" element={<Home />}></Route>
+        </Route>
+        <Route path="/*" element={<NotFound />}></Route>
       </Routes>
     </ContextProvider>
   );

@@ -20,8 +20,8 @@ export default function Contents() {
           <Route path="/post" element={<Postview />}></Route>
           <Route path="/post/category/*" element={<Postview />}></Route>
           <Route path="/post/:pid" element={<PostDetail />}></Route>
-          <Route path="/*" element={<NotFound />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/*" element={<NotFound />}></Route>
         </Routes>
       </div>
       <div className="col-1 sub-area">
