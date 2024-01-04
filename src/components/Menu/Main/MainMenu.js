@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import UserInfo from "../User/UserInfo";
+import UserInfo from "../../Action/InfoAction";
 import "./MainMenu.css";
 
 const Button = styled.button`
