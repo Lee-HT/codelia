@@ -21,10 +21,6 @@ api.interceptors.request.use(
   }
 );
 
-export function public_url(path) {
-  return process.env.PUBLIC_URL + path;
-}
-
 export const delay = function (text, time) {
   return new Promise((resolve) => {
     setTimeout(() => {

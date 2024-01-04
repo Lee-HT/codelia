@@ -1,13 +1,14 @@
-import styled from "styled-components";
-import "./MainMenu.css";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import UserInfo from "../User/UserInfo";
+import "./MainMenu.css";
 
 const Button = styled.button`
-  width: 100%;
   border: 0;
   border-radius: 5px;
   background-color: white;
+  margin: 2px auto;
 
   &:hover {
     text-decoration: underline;
@@ -18,7 +19,7 @@ export default function MainMenu() {
   const navigate = useNavigate();
   // key = category 이름 value = 표기명
   const [categories, setCategories] = useState({
-    "": "게시글 목록",
+    "": "전체 게시글",
   });
 
   async function CategoryLink(category) {
@@ -27,6 +28,7 @@ export default function MainMenu() {
 
   return (
     <div className="main-menu">
+      <UserInfo />
       {Object.entries(categories)?.map(([category, name]) => {
         return (
           <Button

@@ -1,4 +1,3 @@
-import { public_url } from "API";
 import "./Intro.css";
 
 export default function Intro() {
@@ -6,7 +5,7 @@ export default function Intro() {
     <div className="row intro">
       <img
         className="cover-image"
-        src={public_url("/Image/Intro/Intro.png")}
+        src={`${process.env.PUBLIC_URL}/Image/Intro/Intro.png`}
         alt="Intro"
         loading="lazy"
       />
