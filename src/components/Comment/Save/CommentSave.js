@@ -29,7 +29,7 @@ export default function CommentSave(props) {
   }
 
   return (
-    <div className="container comment-save">
+    <section className="container comment-save">
       <div className="comment-username">
         <div className="">{userInfo.username}</div>
       </div>
@@ -50,6 +50,6 @@ export default function CommentSave(props) {
           </button>
         </div>
       </form>
-    </div>
+    </section>
   );
 }
