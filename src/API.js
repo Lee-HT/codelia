@@ -29,3 +29,5 @@ export const delay = function (text, time) {
     }, time);
   });
 };
+
+export const category = { category1: "카테고리1", category2: "카테고리2" };
