@@ -18,6 +18,7 @@ export default function Login() {
           {providers?.map((provider) => {
             return (
               <a
+                key={provider}
                 title={provider + " 로그인"}
                 href={
                   process.env.REACT_APP_HOST +

@@ -31,7 +31,7 @@ export default function PostSave() {
   async function savePost(data, event) {
     event.preventDefault();
     const params = { ...data };
-    console.log("data : " + params);
+    console.log("data : " + JSON.stringify(params));
 
     try {
       const response = await api.post("post", params);

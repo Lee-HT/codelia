@@ -13,6 +13,7 @@ export default function CommentSave(props) {
     const { username, uid } = userInfo;
     const pid = props.pid;
     const params = { ...data, pid: pid, uid: uid, username: username };
+    console.log("data : " + JSON.stringify(params));
 
     try {
       const response = await api.post("comment", params);
