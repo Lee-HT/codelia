@@ -1,7 +1,7 @@
 import { LoginContext } from "contexts/Login/LoginContext";
-import { useContext, useEffect } from "react";
-import "./Login.css";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 export default function Login() {
   const { userInfo } = useContext(LoginContext);
@@ -18,6 +18,7 @@ export default function Login() {
           {providers?.map((provider) => {
             return (
               <a
+                key={provider}
                 title={provider + " 로그인"}
                 href={
                   process.env.REACT_APP_HOST +

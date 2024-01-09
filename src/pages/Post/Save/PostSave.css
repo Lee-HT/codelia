@@ -1,5 +1,56 @@
-.post-save-title {
+.post-save {
+  overflow: hidden;
+}
+.post-save textarea {
+  resize: none;
+  border: none;
+  border-radius: 3px;
 }
 
-.post-save-content{
+.post-save .tool-area {
+  margin-left: auto;
+  width: 20%;
+  height: 100%;
+  background-color: darkseagreen;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.post-save .editor-wrap {
+  margin: 10px auto;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  width: 100%;
+  background-color: lightcyan;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.post-save .commit-btn {
+  height: 32px;
+}
+
+.post-save .set-category {
+  border-radius: 3px;
+  font-size: 25px;
+  width: 20%;
+}
+
+.post-save .set-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 75%;
+  font-size: 20px;
+  padding: 12px;
+  outline: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.post-save .set-title:focus {
+  outline: 1px solid;
+}
+
+.post-save .set-contents {
+  margin: 20px auto;
+  width: 90%;
 }

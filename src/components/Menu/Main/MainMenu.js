@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import UserInfo from "../../Action/InfoAction";
+import { category } from "./../../../API";
 import "./MainMenu.css";
 
 const Button = styled.button`
@@ -18,9 +19,12 @@ const Button = styled.button`
 export default function MainMenu() {
   const navigate = useNavigate();
   // key = category 이름 value = 표기명
-  const [categories, setCategories] = useState({
-    "": "전체 게시글",
-  });
+  const categories = useMemo(() => {
+    return {
+      "": "전체 게시글",
+      ...category,
+    };
+  }, []);
 
   async function CategoryLink(category) {
     navigate("/post/category/" + category);

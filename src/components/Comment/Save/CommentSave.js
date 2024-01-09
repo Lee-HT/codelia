@@ -10,11 +10,11 @@ export default function CommentSave(props) {
 
   async function saveComments(data, event) {
     event.preventDefault();
-    console.log("save : " + data);
     const { username, uid } = userInfo;
     const pid = props.pid;
     const params = { ...data, pid: pid, uid: uid, username: username };
-    
+    console.log("data : " + JSON.stringify(params));
+
     try {
       const response = await api.post("comment", params);
       const { data } = response;
@@ -29,7 +29,7 @@ export default function CommentSave(props) {
   }
 
   return (
-    <div className="container comment-save">
+    <section className="container comment-save">
       <div className="comment-username">
         <div className="">{userInfo.username}</div>
       </div>
@@ -37,7 +37,11 @@ export default function CommentSave(props) {
         <div>
           <textarea
             className="comment-contents-area"
-            {...register("contents", { required: true })}
+            {...register("contents", {
+              required: true,
+              minLength: { value: 1, message: "내용을 작성해 주세요" },
+              maxLength: { value: 300, message: "300자 이내로 입력해 주세요" },
+            })}
             placeholder="내용"
           ></textarea>
         </div>
@@ -50,6 +54,6 @@ export default function CommentSave(props) {
           </button>
         </div>
       </form>
-    </div>
+    </section>
   );
 }
