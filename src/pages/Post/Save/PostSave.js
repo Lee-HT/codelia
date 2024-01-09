@@ -90,10 +90,10 @@ export default function PostSave() {
           ></ReactTextareaAutosize>
         </div>
         <ReactTextareaAutosize
-          className="set-content"
+          className="set-contents"
           title="게시글 내용"
           placeholder="내용을 입력해 주세요"
-          {...register("content", {
+          {...register("contents", {
             required: true,
             minLength: { value: 1, message: "내용을 입력해 주세요" },
             maxLength: {
