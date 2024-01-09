@@ -1,7 +1,8 @@
 import { LoginContext } from "contexts/Login/LoginContext";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
+import UserInfo from "../UserInfo/UserInfo";
 import "./HeaderMenu.css";
 
 const Button = styled.button`
@@ -10,12 +11,13 @@ const Button = styled.button`
 
 export default function HeaderMenu() {
   const navigate = useNavigate();
+  const [isMenu, setIsMenu] = useState(false);
   const { userInfo } = useContext(LoginContext);
 
   function handleLogin() {
     navigate("/login");
   }
-  function handleMypage() {}
+  function handleMyMenu() {}
 
   useEffect(() => {
     console.log(userInfo);
@@ -24,7 +26,10 @@ export default function HeaderMenu() {
   return (
     <div className="header-menu">
       {userInfo.isLogin ? (
-        <Button onClick={handleMypage}>내 정보</Button>
+        <div className="user-menu-wrap">
+          <Button onClick={handleMyMenu}>{userInfo.username}</Button>
+          <UserInfo />
+        </div>
       ) : (
         <Button onClick={handleLogin}>로그인</Button>
       )}
