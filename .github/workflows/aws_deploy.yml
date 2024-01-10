@@ -22,15 +22,15 @@ jobs:
       # touch 명령어로 빈 파일 생성
       # echo 명령어로 파일 덮어쓰기
       - name: .env
-        run: touch .env.local
-      - run: echo "${{secrets.ENV_LOCAL}}" > .env.local
+        run: touch .env.development
+      - run: echo "${{secrets.ENV_DEVELOPMENT}}" > .env.development
       - run: touch .env.production
       - run: echo "${{secrets.ENV_PRODUCTION}}" > .env.production
 
       - uses: actions/upload-artifact@v3
         with:
-          name: env.local
-          path: ./.env.local
+          name: env.development
+          path: ./.env.development
       - uses: actions/upload-artifact@v3
         with:
           name: env.production

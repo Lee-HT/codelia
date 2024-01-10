@@ -25,6 +25,7 @@ export default function HeaderMenu() {
 
   return (
     <div className="header-menu">
+      <div>{process.env.REACT_APP_API}</div>
       {userInfo.isLogin ? (
         <div className="user-menu-wrap">
           <Button onClick={handleMyMenu}>{userInfo.username}</Button>
