@@ -17,7 +17,9 @@ export default function HeaderMenu() {
   function handleLogin() {
     navigate("/login");
   }
-  function handleMyMenu() {}
+  function handleMyMenu() {
+    setIsMenu(!isMenu);
+  }
 
   useEffect(() => {
     console.log(userInfo);
@@ -25,11 +27,10 @@ export default function HeaderMenu() {
 
   return (
     <div className="header-menu">
-      <div>{process.env.REACT_APP_API}</div>
       {userInfo.isLogin ? (
         <div className="user-menu-wrap">
           <Button onClick={handleMyMenu}>{userInfo.username}</Button>
-          <UserInfo />
+          {isMenu ? <UserInfo /> : null}
         </div>
       ) : (
         <Button onClick={handleLogin}>로그인</Button>

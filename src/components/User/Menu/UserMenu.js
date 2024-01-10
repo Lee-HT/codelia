@@ -3,8 +3,9 @@ import "./UserMenu.css";
 
 const Ul = styled.ul`
   padding: 0;
-  margin: 0;
+  margin-top: 2px;
   background-color: white;
+  border-radius: 3px;
 `;
 
 const Li = styled.li`
@@ -15,7 +16,7 @@ const Li = styled.li`
 `;
 
 const Button = styled.button`
-  margin: 1px auto;
+  margin: 5px auto;
   padding:0;
   border: 0;
   border-radius: 3px;

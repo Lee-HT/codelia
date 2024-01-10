@@ -21,7 +21,7 @@ export default function Login() {
                 key={provider}
                 title={provider + " 로그인"}
                 href={
-                  process.env.REACT_APP_HOST +
+                  process.env.REACT_APP_API +
                   "/api/oauth2/authorization/" +
                   provider
                 }
