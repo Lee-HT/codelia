@@ -12,7 +12,7 @@ export default function Login() {
   return (
     <div className="login-container">
       {userInfo.isLogin ? (
-        navigate("/")
+        navigate("/", { replace: true })
       ) : (
         <div className="login-area">
           {providers?.map((provider) => {

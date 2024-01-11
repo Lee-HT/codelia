@@ -7,5 +7,30 @@
   width: 250%;
   right: 0;
   background-color: darkcyan;
-  border-radius: 3px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.user-info-wrap .profile-img {
+  width: 50%;
+  height: 90%;
+  border-radius: 25%;
+  background-color: white;
+}
+
+.user-info-wrap .my-page-btn {
+  width: 40%;
+  height: 25%;
+  border-radius: 5px;
+}
+
+.user-info-wrap .logout-btn {
+  width: 40%;
+  height: 25%;
+  border-radius: 5px;
 }

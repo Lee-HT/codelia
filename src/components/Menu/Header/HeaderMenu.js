@@ -1,5 +1,5 @@
 import { LoginContext } from "contexts/Login/LoginContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import UserInfo from "../UserInfo/UserInfo";
@@ -10,6 +10,7 @@ const Button = styled.button`
 `;
 
 export default function HeaderMenu() {
+  const Ref = useRef(null);
   const navigate = useNavigate();
   const [isMenu, setIsMenu] = useState(false);
   const { userInfo } = useContext(LoginContext);
@@ -28,12 +29,12 @@ export default function HeaderMenu() {
   return (
     <div className="header-menu">
       {userInfo.isLogin ? (
-        <div className="user-menu-wrap">
+        <div className="user-menu-wrap" ref={Ref}>
           <Button onClick={handleMyMenu}>{userInfo.username}</Button>
-          {isMenu ? <UserInfo /> : null}
+          {isMenu ? <UserInfo inputRef={Ref} isMenu={isMenu} setIsMenu={setIsMenu}/> : null}
         </div>
       ) : (
-        <Button onClick={handleLogin}>로그인</Button>
+        <Button onClick={handleLogin}>Sign In</Button>
       )}
     </div>
   );
