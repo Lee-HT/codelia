@@ -3,6 +3,11 @@
   max-height: 30px;
 }
 
+.header-menu .header-menu-box {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 .user-menu-wrap {
   position: relative;
 }

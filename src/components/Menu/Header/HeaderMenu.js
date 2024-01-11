@@ -28,14 +28,18 @@ export default function HeaderMenu() {
 
   return (
     <div className="header-menu">
-      {userInfo.isLogin ? (
-        <div className="user-menu-wrap" ref={Ref}>
-          <Button onClick={handleMyMenu}>{userInfo.username}</Button>
-          {isMenu ? <UserInfo inputRef={Ref} isMenu={isMenu} setIsMenu={setIsMenu}/> : null}
-        </div>
-      ) : (
-        <Button onClick={handleLogin}>Sign In</Button>
-      )}
+      <div className="header-menu-box">
+        {userInfo.isLogin ? (
+          <div className="user-menu-wrap" ref={Ref}>
+            <Button onClick={handleMyMenu}>{userInfo.username}</Button>
+            {isMenu ? (
+              <UserInfo inputRef={Ref} isMenu={isMenu} setIsMenu={setIsMenu} />
+            ) : null}
+          </div>
+        ) : (
+          <Button onClick={handleLogin}>Sign In</Button>
+        )}
+      </div>
     </div>
   );
 }
