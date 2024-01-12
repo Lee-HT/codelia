@@ -39,7 +39,7 @@ export default function PostSave() {
       if (response.status === 200) {
         console.log(data);
         reset();
-        // navigate("/post");
+        navigate("/post");
       }
     } catch (error) {
       console.log(error);

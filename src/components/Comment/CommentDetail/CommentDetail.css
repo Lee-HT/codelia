@@ -1,13 +1,14 @@
 .comment-detail {
   padding-top: 50px;
-  width: 800px;
+  margin: auto;
   border-top: 2px solid rgb(0, 0, 0, 0.2);
 }
 .comment-list {
-    width: 750px;
+    width: 80%;
 }
 
 .comment-save {
-  width: 750px;
+  margin-top: 15px;
+  width: 75%;
   height: 150px;
 }

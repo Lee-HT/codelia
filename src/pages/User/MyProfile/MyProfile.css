@@ -1,0 +1,12 @@
+.my-profile {
+    background-color: cornflowerblue;
+}
+
+.my-profile h3{
+    margin-left: 30px;
+    text-align: start;
+}
+
+.my-profile .update-area .username{
+    resize: none;
+}

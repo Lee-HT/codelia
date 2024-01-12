@@ -41,7 +41,7 @@ export default function Usermenu(props) {
           return (
             <Li key={index}>
               {
-                <Button height={props.height} width={props.width}>
+                <Button uid={props.uid} height={props.height} width={props.width}>
                   {button}
                 </Button>
               }
