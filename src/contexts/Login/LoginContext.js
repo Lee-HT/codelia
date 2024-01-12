@@ -18,8 +18,18 @@ export default function LoginProvider({ children }) {
     [setUser]
   );
 
+  const resetUserInfo = useCallback(() => {
+    setUser(() => ({
+      isLogin: false,
+      username: "",
+      uid: null,
+      email: "",
+      profilePic: "",
+    }));
+  }, [setUser]);
+
   return (
-    <LoginContext.Provider value={{ userInfo, setUserInfo }}>
+    <LoginContext.Provider value={{ userInfo, setUserInfo, resetUserInfo }}>
       {children}
     </LoginContext.Provider>
   );

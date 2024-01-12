@@ -21,7 +21,6 @@ export default function CommentList(props) {
       try {
         const response = await api.get("comment/post/" + props.pid, { params });
         const { data } = response;
-        console.log("comment_list : " + data);
         setComments(data);
         props.setTotalPage(data.totalPages);
       } catch (error) {

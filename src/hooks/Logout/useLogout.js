@@ -1,16 +1,15 @@
 import { useCallback } from "react";
 
-export default function useLogout(setUserInfo) {
+export default function useLogout(resetUserInfo) {
   const LogoutApi = useCallback(() => {
     window.location.replace(process.env.REACT_APP_API + "/api/logout");
   }, []);
 
   const Logout = useCallback(() => {
     sessionStorage.removeItem("accessToken");
-    setUserInfo("isLogin", false);
-    setUserInfo("uid", null);
+    resetUserInfo();
     LogoutApi();
-  }, [setUserInfo, LogoutApi]);
+  }, [resetUserInfo, LogoutApi]);
 
   return Logout;
 }

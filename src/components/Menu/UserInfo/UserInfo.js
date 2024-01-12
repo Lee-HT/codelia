@@ -1,11 +1,11 @@
-import useLogout from "hooks/Logout/useLogout";
+import useLogout from "hooks/Logout/UseLogout";
 import { useCallback, useContext, useEffect } from "react";
 import "./UserInfo.css";
 import { LoginContext } from "contexts/Login/LoginContext";
 
 export default function UserInfo(props) {
-  const { setUserInfo } = useContext(LoginContext);
-  const handleLogout = useLogout(setUserInfo);
+  const { resetUserInfo } = useContext(LoginContext);
+  const handleLogout = useLogout(resetUserInfo);
   const handleMenuClose = useCallback(
     (event) => {
       if (
