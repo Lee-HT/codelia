@@ -46,7 +46,7 @@ export default function UserProfile(props) {
       <Button className="user-menu-button" onClick={handleMenu}>
         {props.username}
       </Button>
-      {isMenu && <UserMenu height={"25px"} width={"100px"} />}
+      {isMenu && <UserMenu height={"25px"} width={"120px"} />}
     </div>
   );
 }

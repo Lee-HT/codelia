@@ -17,13 +17,14 @@ const Li = styled.li`
 
 const Button = styled.button`
   margin: 5px auto;
-  padding:0;
+  padding: 0;
   border: 0;
   border-radius: 3px;
   font-size: 13px;
-  width: 100%;
-  height: 100%;
   background-color: white;
+  
+  height: ${(props) => props.height || "100%"};
+  width: ${(props) => props.width || "100%"};
 
   &:hover {
     text-decoration: underline;
@@ -31,13 +32,21 @@ const Button = styled.button`
 `;
 
 export default function Usermenu(props) {
-  const buttons = [<Button>유저 정보</Button>, <Button>작성 게시글</Button>];
+  const buttons = ["유저 정보", "작성 게시글"];
 
   return (
     <div className="user-menu">
       <Ul className="user-menu-contents">
         {buttons?.map((button, index) => {
-          return <Li key={index}>{button}</Li>;
+          return (
+            <Li key={index}>
+              {
+                <Button height={props.height} width={props.width}>
+                  {button}
+                </Button>
+              }
+            </Li>
+          );
         })}
       </Ul>
     </div>

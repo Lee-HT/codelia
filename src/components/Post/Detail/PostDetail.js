@@ -28,24 +28,24 @@ export default function PostDetail() {
   }, [params.pid]);
 
   return (
-    <div className="row post-view">
-      <div className="col-12 post-category">
+    <div className="post-wrap">
+      <div className="category">
         <PostCategory category={post.category} />
       </div>
-      <div className="col-12 post-user-profile">
+      <div className="username">
         <UserProfile username={post.username} />
       </div>
-      <div className="col-12 post-title">
+      <div className="title">
         <PostTitle title={post.title} />
       </div>
-      <div className="col-12 post-contents">
+      <div className="contents">
         <PostContents contents={post.contents} />
       </div>
 
-      <div className="col-12 post__likes">
+      <div className="post__likes">
         <PostLikes pid={params.pid}/>
       </div>
-      <div className="col-12 post__comments">
+      <div className="comments">
         <CommentDetail pid={params.pid} />
       </div>
     </div>

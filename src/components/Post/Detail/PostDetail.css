@@ -1,15 +1,19 @@
-.post-title {
+.post-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-wrap .title {
   font-size: 22px;
   min-height: 50px;
   background-color: aquamarine;
 }
 
-.post-contents {
-  
+.post-wrap .contents {
   min-height: 400px;
   background-color: white;
 }
 
-.post__comments {
+.post-wrap .comments {
   background-color: darkseagreen;
 }
