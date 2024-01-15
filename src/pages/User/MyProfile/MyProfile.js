@@ -15,7 +15,7 @@ export default function MyProfile() {
     console.log("data : " + JSON.stringify(params));
 
     try {
-      const response = await api.put("user", params);
+      const response = await api.patch("user", params);
       const { data } = response;
       if (response.status === 200) {
         console.log(data);
