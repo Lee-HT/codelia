@@ -8,7 +8,7 @@ export default function LoginProvider({ children }) {
     username: "",
     uid: null,
     email: "",
-    profilePic: "",
+    profileImg: "",
   });
 
   const setUserInfo = useCallback(
@@ -24,7 +24,7 @@ export default function LoginProvider({ children }) {
       username: "",
       uid: null,
       email: "",
-      profilePic: "",
+      profileImg: "",
     }));
   }, [setUser]);
 

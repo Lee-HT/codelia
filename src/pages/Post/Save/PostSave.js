@@ -60,7 +60,7 @@ export default function PostSave() {
         <div className="editor-wrap">
           <select
             className="set-category"
-            {...register("category", { required: true })}
+            {...register("category", { required: "카테고리를 선택해 주세요" })}
             value={register.category}
             defaultValue={""}
           >
@@ -80,7 +80,7 @@ export default function PostSave() {
             title="게시글 제목"
             placeholder="제목을 입력해 주세요"
             {...register("title", {
-              required: true,
+              required: "제목은 필수 입니다",
               minLength: { value: 1, message: "제목을 입력해 주세요" },
               maxLength: {
                 value: 100,
@@ -94,7 +94,7 @@ export default function PostSave() {
           title="게시글 내용"
           placeholder="내용을 입력해 주세요"
           {...register("contents", {
-            required: true,
+            required: "내용은 필수 입니다",
             minLength: { value: 1, message: "내용을 입력해 주세요" },
             maxLength: {
               value: 3000,

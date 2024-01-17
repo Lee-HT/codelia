@@ -38,7 +38,7 @@ export default function CommentSave(props) {
           <textarea
             className="comment-contents-area"
             {...register("contents", {
-              required: true,
+              required: "내용은 필수 입니다",
               minLength: { value: 1, message: "내용을 작성해 주세요" },
               maxLength: { value: 300, message: "300자 이내로 입력해 주세요" },
             })}

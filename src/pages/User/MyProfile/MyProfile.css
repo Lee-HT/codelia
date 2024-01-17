@@ -1,12 +1,66 @@
 .my-profile {
-    background-color: cornflowerblue;
+  background-color: cornflowerblue;
 }
 
-.my-profile h3{
-    margin-left: 30px;
-    text-align: start;
+.my-profile h3 {
+  margin-left: 30px;
+  text-align: start;
 }
 
-.my-profile .update-area .username{
-    resize: none;
+.my-profile .profile-box {
+  background-color: aquamarine;
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.profile-box .profile-img-area {
+  background-color: beige;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  height: 100%;
+}
+
+.profile-box .img-area {
+  margin-top: 10%;
+  width: 80%;
+}
+
+.my-profile .update-area {
+  width: 60%;
+  background-color: chartreuse;
+  font-size: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.update-area .username-area {
+  padding: 10px;
+  background-color: darkseagreen;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.update-area .username-text {
+  resize: none;
+  width: 65%;
+  max-width: 65%;
+}
+
+.update-area .commit-btn {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: darkkhaki;
+}
+
+.my-profile .delete-btn {
+  font-size: 18px;
+  margin: 30px;
 }
