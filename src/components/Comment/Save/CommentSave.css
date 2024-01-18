@@ -21,8 +21,14 @@
   border-radius: 10px;
 }
 
-.comment__button-area{
-  text-align: end;
+.comment-save .comment-command-area{
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-save .submit-area{
+  display: flex;
+  justify-content: flex-end;
   margin-right: 15px;
 }
 

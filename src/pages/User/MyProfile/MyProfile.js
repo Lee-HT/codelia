@@ -7,8 +7,19 @@ import { useNavigate } from "react-router-dom";
 
 const Button = styled.button``;
 
+const ErrorMessage = styled.div`
+  margin-top: 10px;
+  font-size: 14px;
+  flex-basis: 100%;
+  color: red;
+`;
+
 export default function MyProfile() {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const navigate = useNavigate();
 
   async function updateUser(data, event) {
@@ -61,12 +72,13 @@ export default function MyProfile() {
                 className="username-text"
                 rows={1}
                 {...register("username", {
-                  required: true,
+                  required: "이름을 입력 해주세요",
                   minLength: { value: 2, message: "2자 이상 이어야 합니다" },
                   maxLength: { value: 16, message: "16자 이하 이어야 합니다" },
                 })}
                 value={register.username}
               ></textarea>
+              <ErrorMessage>{errors.username?.message}</ErrorMessage>
             </div>
             <div className="commit-btn">
               <Button type="submit">수정</Button>
