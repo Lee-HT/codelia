@@ -1,5 +1,6 @@
 import { api } from "API";
-import { useCallback, useEffect, useState } from "react";
+import usePostLike from "hooks/PostLike/UsePostLike";
+import { useEffect } from "react";
 import styled from "styled-components";
 import "./PostLikes.css";
 
@@ -12,44 +13,7 @@ const Button = styled.button`
 `;
 
 export default function PostLikes(props) {
-  const [likeState, setLikeState] = useState(null);
-
-  const handleLikes = useCallback(
-    (likes) => {
-      async function putApi(likes) {
-        try {
-          const params = { pid: props.pid, likes: likes };
-          const response = await api.put("/post/likes", params);
-          if (response.status === 201) {
-            const { data } = response;
-            console.log(data);
-            setLikeState(data.likes);
-          }
-        } catch (error) {
-          console.log(error);
-        }
-      }
-      async function deleteApi() {
-        try {
-          const response = await api.delete("/post/" + props.pid + "/likes");
-          if (response.status === 204) {
-            const { data } = response;
-            console.log(data);
-            setLikeState(null);
-          }
-        } catch (error) {
-          console.log(error);
-        }
-      }
-
-      if (likeState == null || likeState !== likes) {
-        putApi(likes);
-      } else {
-        deleteApi();
-      }
-    },
-    [props.pid, likeState]
-  );
+  const { likeState, setLikeState, handleLikes } = usePostLike(props.pid);
 
   useEffect(() => {
     async function PostLikesState() {
@@ -65,7 +29,7 @@ export default function PostLikes(props) {
       }
     }
     PostLikesState();
-  }, [props.pid]);
+  }, [props.pid, setLikeState]);
 
   return (
     <div className="post__likes">
