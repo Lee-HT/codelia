@@ -1,8 +1,8 @@
+import { LoginContext } from "contexts/Login/LoginContext";
 import useLogout from "hooks/Logout/UseLogout";
 import { useCallback, useContext, useEffect } from "react";
-import "./UserInfo.css";
-import { LoginContext } from "contexts/Login/LoginContext";
 import { useNavigate } from "react-router-dom";
+import "./UserInfo.css";
 
 export default function UserInfo(props) {
   const { resetUserInfo } = useContext(LoginContext);
