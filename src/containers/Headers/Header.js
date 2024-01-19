@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 export default function Header() {
   const navigate = useNavigate();
   return (
-    <header className="row header">
-      <div className="col-6 header-icon">
+    <header className="header">
+      <div className="header-icon">
         <div className="header-link">
           <button
             onClick={() => {
@@ -18,10 +18,10 @@ export default function Header() {
           </button>
         </div>
       </div>
-      <div className="col-6 header-menu">
+      <div className="header-menu">
         <HeaderMenu />
       </div>
-      <div className="col intro-image">
+      <div className="intro-img">
         <Intro />
       </div>
     </header>

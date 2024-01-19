@@ -1,0 +1,36 @@
+.user-info-wrap {
+  margin-top: 2px;
+  position: absolute;
+  max-height: 150px;
+  max-width: 250px;
+  height: 150px;
+  width: 250px;
+  right: 0;
+  background-color: darkcyan;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.user-info-wrap .profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 35%;
+  background-color: white;
+}
+
+.user-info-wrap .my-page-btn {
+  width: 40%;
+  height: 25%;
+  border-radius: 5px;
+}
+
+.user-info-wrap .logout-btn {
+  width: 40%;
+  height: 25%;
+  border-radius: 5px;
+}

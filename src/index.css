@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+button {
+  border: none;
+  border-radius: 3px;
+}
+
 * {
   max-width: 100%;
   max-height: 100%;

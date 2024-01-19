@@ -21,7 +21,7 @@ export default function App() {
   return (
     <ContextProvider contexts={contextArray}>
       <Routes>
-        <Route path="oauth2/redirect" element={<LoginRedirect />}></Route>
+        <Route path="/oauth2/redirect" element={<LoginRedirect />}></Route>
         <Route path="/*" element={<Home />}></Route>
       </Routes>
     </ContextProvider>

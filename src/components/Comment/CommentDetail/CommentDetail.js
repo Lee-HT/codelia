@@ -15,7 +15,7 @@ export default function CommentDetail(props) {
   }, [isSaved]);
 
   return (
-    <div className="container comment-detail">
+    <div className="comment-detail">
       <CommentList
         pid={props.pid}
         currentPage={currentPage - 1}

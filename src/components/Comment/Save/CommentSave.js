@@ -2,11 +2,23 @@ import { api } from "API";
 import { LoginContext } from "contexts/Login/LoginContext";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import styled from "styled-components";
 import "./CommentSave.css";
+
+const ErrorMessage = styled.div`
+  margin-left: 3%;
+  font-size: 14px;
+  color: red;
+`;
 
 export default function CommentSave(props) {
   const { userInfo } = useContext(LoginContext);
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
   async function saveComments(data, event) {
     event.preventDefault();
@@ -29,7 +41,7 @@ export default function CommentSave(props) {
   }
 
   return (
-    <section className="container comment-save">
+    <section className="comment-save">
       <div className="comment-username">
         <div className="">{userInfo.username}</div>
       </div>
@@ -38,20 +50,22 @@ export default function CommentSave(props) {
           <textarea
             className="comment-contents-area"
             {...register("contents", {
-              required: true,
-              minLength: { value: 1, message: "내용을 작성해 주세요" },
+              required: "내용을 작성해 주세요",
               maxLength: { value: 300, message: "300자 이내로 입력해 주세요" },
             })}
             placeholder="내용"
           ></textarea>
         </div>
-        <div className="comment__button-area">
-          <button className="comment-submit" type="submit">
-            등록
-          </button>
-          <button className="comment-submit-cancel" type="reset">
-            취소
-          </button>
+        <div className="comment-command-area">
+          <ErrorMessage>{errors.contents?.message}</ErrorMessage>
+          <div className="submit-area">
+            <button className="comment-submit" type="submit">
+              등록
+            </button>
+            <button className="comment-submit-cancel" type="reset">
+              취소
+            </button>
+          </div>
         </div>
       </form>
     </section>

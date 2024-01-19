@@ -1,15 +1,19 @@
 .comment-save {
   border: 2px solid rgb(255, 184, 193);
   border-radius: 10px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .comment-username {
+  height: 30px;
   margin-left: 15px;
   text-align: start;
 }
 
 .comment-contents-area{
-  width: 700px;
+  width: 95%;
   height: 80px;
   resize: none;
   outline: none;
@@ -17,8 +21,14 @@
   border-radius: 10px;
 }
 
-.comment__button-area{
-  text-align: end;
+.comment-save .comment-command-area{
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-save .submit-area{
+  display: flex;
+  justify-content: flex-end;
   margin-right: 15px;
 }
 

@@ -24,12 +24,10 @@ export default function PostList(props) {
   useEffect(() => {
     async function getPosts() {
       try {
-        console.log(params);
         const response = await api.get("post", { params });
         const { data } = response;
         setTotalPage(data.totalPages);
         if (response.status === 200) {
-          console.log(data);
           setPosts(data);
         }
       } catch (error) {
@@ -49,21 +47,24 @@ export default function PostList(props) {
 
   return (
     <div className="post-list">
-      <div className="post-page">
-        <select
-          className="post-size"
-          value={params.size}
-          onChange={(event) => setSize(event.target.value)}
-        >
-          {sizeList?.map((size) => {
-            return (
-              <option key={size} value={size}>
-                {size + "개"}
-              </option>
-            );
-          })}
-        </select>
-      </div>
+      {!props.notControl ? (
+        <div className="post-page">
+          <select
+            className="post-size"
+            value={params.size}
+            onChange={(event) => setSize(event.target.value)}
+          >
+            {sizeList?.map((size) => {
+              return (
+                <option key={size} value={size}>
+                  {size + "개"}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+      ) : null}
+
       {posts?.contents?.map((post) => {
         return (
           <PostBar
@@ -78,12 +79,14 @@ export default function PostList(props) {
           />
         );
       })}
-      <Pagination
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        totalPage={totalPage}
-        limit={pageLimit}
-      />
+      {!props.notControl ? (
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          totalPage={totalPage}
+          limit={pageLimit}
+        />
+      ) : null}
     </div>
   );
 }

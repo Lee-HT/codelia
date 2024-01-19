@@ -1,4 +1,13 @@
 .header-menu {
-    height: 30px;
-    max-height: 30px;
+  height: 30px;
+  max-height: 30px;
+}
+
+.header-menu .header-menu-box {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.user-menu-wrap {
+  position: relative;
 }

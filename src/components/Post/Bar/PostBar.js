@@ -31,8 +31,8 @@ export default function PostBar(props) {
       <Button className="col post-title-link" onClick={handlePost}>
         {props.title}
       </Button>
-      <div className="col-2 post-user-link">
-        <UserProfile username={props.username} height={props.height} />
+      <div className="col-2 post-username">
+        <UserProfile username={props.username} uid={props.uid} />
       </div>
       <div className="row col-2 post-info">
         <div className="post-created-date">{props.createdAt}</div>

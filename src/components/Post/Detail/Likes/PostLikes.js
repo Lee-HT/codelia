@@ -1,35 +1,50 @@
 import { api } from "API";
-import "./PostLikes.css";
-import { useEffect, useState } from "react";
+import usePostLike from "hooks/PostLike/UsePostLike";
+import { useEffect } from "react";
 import styled from "styled-components";
+import "./PostLikes.css";
 
 const Button = styled.button`
-  margin: 4px auto;
+  margin: 4px;
   border: 0;
   border-radius: 3px;
   height: 32px;
+  background-color: ${(props) => props.color};
 `;
 
 export default function PostLikes(props) {
-  const [likeState, setLikeState] = useState(null);
+  const { likeState, setLikeState, handleLikes } = usePostLike(props.pid);
+
   useEffect(() => {
     async function PostLikesState() {
       try {
-        const response = await api.post("/");
-        const { data } = response;
-        console.log(data);
-        setLikeState("");
+        const response = await api.get("/post/" + props.pid + "/likes");
+        if (response.status === 200) {
+          const { data } = response;
+          console.log(data);
+          setLikeState(data.likes);
+        }
       } catch (error) {
         console.log(error);
       }
     }
     PostLikesState();
-  }, [setLikeState]);
+  }, [props.pid, setLikeState]);
 
   return (
     <div className="post__likes">
-      <Button>{likeState ? "싫어요 x" : "싫어요 o"}</Button>
-      <Button>{likeState ? "좋아요 o" : "좋아요 x"}</Button>
+      <Button
+        color={likeState === false ? "rgba(255, 0, 0, 0.5)" : "white"}
+        onClick={() => handleLikes(false)}
+      >
+        싫어요
+      </Button>
+      <Button
+        color={likeState === true ? "lawngreen" : "white"}
+        onClick={() => handleLikes(true)}
+      >
+        좋아요
+      </Button>
     </div>
   );
 }

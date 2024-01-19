@@ -1,15 +1,25 @@
 .header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   background-color: antiquewhite;
+  margin-bottom: 30px;
 }
 
-.header-icon {
+.header .header-icon {
+  flex-basis: 50%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.header-menu {
+.header .header-menu {
+  flex-basis: 50%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+.header .intro-img {
+  flex-basis: 100%;
 }

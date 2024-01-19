@@ -11,11 +11,11 @@ import PostSave from "pages/Post/Save/PostSave";
 
 export default function Contents() {
   return (
-    <div className="row contents-area">
-      <div className="col-2 group-area">
+    <div className="contents-area">
+      <div className="group-area">
         <MainMenu />
       </div>
-      <div className="col-9 main-area">
+      <div className="main-area">
         <Routes>
           <Route path="/" element={<Preview />}></Route>
           <Route path="/post/save" element={<PostSave />}></Route>
@@ -25,7 +25,7 @@ export default function Contents() {
           <Route path="/*" element={<NotFound />}></Route>
         </Routes>
       </div>
-      <div className="col-1 sub-area">
+      <div className="sub-area">
         <SubMenu />
       </div>
     </div>

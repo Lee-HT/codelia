@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: process.env.REACT_APP_HOST + "/api",
+  baseURL: process.env.REACT_APP_API + "/api",
   timeout: 3000,
   responseType: "json",
   withCredentials: true,

@@ -24,9 +24,20 @@ const Button = styled.button`
   }
 `;
 
+const ErrorMessage = styled.div`
+  font-size: 14px;
+  flex-basis: 100%;
+  color: red;
+`;
+
 export default function PostSave() {
   const navigate = useNavigate();
-  const { register, handleSubmit, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
   async function savePost(data, event) {
     event.preventDefault();
@@ -39,7 +50,7 @@ export default function PostSave() {
       if (response.status === 200) {
         console.log(data);
         reset();
-        // navigate("/post");
+        navigate("/post/category");
       }
     } catch (error) {
       console.log(error);
@@ -58,44 +69,51 @@ export default function PostSave() {
           </div>
         </WritingHeader>
         <div className="editor-wrap">
-          <select
-            className="set-category"
-            {...register("category", { required: true })}
-            value={register.category}
-            defaultValue={""}
-          >
-            <option value={""} disabled hidden>
-              {"카테고리 선택"}
-            </option>
-            {Object.values(category)?.map((ctg) => {
-              return (
-                <option key={ctg} value={ctg}>
-                  {ctg}
-                </option>
-              );
-            })}
-          </select>
-          <ReactTextareaAutosize
-            className="set-title"
-            title="게시글 제목"
-            placeholder="제목을 입력해 주세요"
-            {...register("title", {
-              required: true,
-              minLength: { value: 1, message: "제목을 입력해 주세요" },
-              maxLength: {
-                value: 100,
-                message: "100자 이내로 입력해 주세요",
-              },
-            })}
-          ></ReactTextareaAutosize>
+          <div className="category-area">
+            <select
+              className="set-category"
+              {...register("category", {
+                required: "카테고리를 선택해 주세요",
+              })}
+              value={register.category}
+              defaultValue={""}
+            >
+              <option value={""} disabled hidden>
+                {"카테고리 선택"}
+              </option>
+              {Object.values(category)?.map((ctg) => {
+                return (
+                  <option key={ctg} value={ctg}>
+                    {ctg}
+                  </option>
+                );
+              })}
+            </select>
+            <ErrorMessage>{errors.category?.message}</ErrorMessage>
+          </div>
+
+          <div className="title-area">
+            <ReactTextareaAutosize
+              className="set-title"
+              title="게시글 제목"
+              placeholder="제목을 입력해 주세요"
+              {...register("title", {
+                required: "제목을 입력해 주세요",
+                maxLength: {
+                  value: 50,
+                  message: "50자 이내로 입력해 주세요",
+                },
+              })}
+            ></ReactTextareaAutosize>
+            <ErrorMessage>{errors.title?.message}</ErrorMessage>
+          </div>
         </div>
         <ReactTextareaAutosize
           className="set-contents"
           title="게시글 내용"
           placeholder="내용을 입력해 주세요"
           {...register("contents", {
-            required: true,
-            minLength: { value: 1, message: "내용을 입력해 주세요" },
+            required: "내용을 입력해 주세요",
             maxLength: {
               value: 3000,
               message: "3000자 이내로 입력해 주세요",
@@ -103,6 +121,7 @@ export default function PostSave() {
           })}
           minRows={15}
         ></ReactTextareaAutosize>
+        <ErrorMessage>{errors.contents?.message}</ErrorMessage>
       </form>
     </div>
   );

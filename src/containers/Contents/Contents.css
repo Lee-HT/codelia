@@ -1,8 +1,16 @@
 .contents-area {
-  margin-top: 30px;
+  display: flex;
   background-color: rgb(127, 255, 155);
 }
 
-.main-area {
+.contents-area .group-area{
+ flex-basis: 12%;
+}
+
+.contents-area .main-area {
+  flex-basis: 78%;
   background-color: lightblue;
 }
+ .contents-area .sub-area{
+  flex-basis: 10%;
+ }

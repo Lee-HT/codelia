@@ -17,6 +17,8 @@ export default function LoginRedirect() {
         setUserInfo("isLogin", true);
         setUserInfo("username", data.username);
         setUserInfo("uid", data.uid);
+        setUserInfo("email", data.email);
+        setUserInfo("profileImg",data.profilePic);
       }
     } catch (error) {
       console.log(error);
