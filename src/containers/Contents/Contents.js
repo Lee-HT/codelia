@@ -3,7 +3,7 @@ import SubMenu from "components/Menu/Sub/SubMenu";
 import NotFound from "pages/Error/404error/NotFound";
 import Login from "pages/Login/Login";
 import PostDetail from "components/Post/Detail/PostDetail";
-import Preview from "pages/Preview/Preview";
+import Preview from "pages/Prev/Preview";
 import { Route, Routes } from "react-router-dom";
 import "./Contents.css";
 import Postview from "pages/Post/View/Postview";
