@@ -1,5 +1,5 @@
 import { api } from "API";
-import usePostLike from "hooks/PostLike/usePostLike";
+import { usePostLike } from 'hooks/PostLike/usePostLike';
 import { useEffect } from "react";
 import styled from "styled-components";
 import "./PostLikes.css";
