@@ -1,5 +1,5 @@
 import { LoginContext } from "contexts/Login/LoginContext";
-import useLogout from "hooks/Logout/UseLogout";
+import useLogout from "hooks/Logout/useLogout";
 import { useCallback, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./UserInfo.css";
