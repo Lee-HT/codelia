@@ -1,9 +1,11 @@
 import { api } from "API";
+import ProfileImg from "components/User/ProfileImg/ProfileImg";
+import { LoginContext } from "contexts/Login/LoginContext";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import "./MyProfile.css";
-import ProfileImg from "components/User/ProfileImg/ProfileImg";
-import { useNavigate } from "react-router-dom";
 
 const Button = styled.button``;
 
@@ -15,6 +17,7 @@ const ErrorMessage = styled.div`
 `;
 
 export default function MyProfile() {
+  const { userInfo, setUserInfo } = useContext(LoginContext);
   const {
     register,
     handleSubmit,
@@ -31,7 +34,7 @@ export default function MyProfile() {
       const response = await api.patch("user", params);
       const { data } = response;
       if (response.status === 200) {
-        console.log(data);
+        setUserInfo("username",data.username)
         navigate("/");
       }
     } catch (error) {
@@ -62,7 +65,7 @@ export default function MyProfile() {
         <div className="profile-box">
           <div className="profile-img-area">
             <div className="img-area">
-              <ProfileImg imgLink="https://images.pexels.com/photos/4310835/pexels-photo-4310835.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+              <ProfileImg imgLink={userInfo.profileImg} />
             </div>
           </div>
           <div className="update-area">
