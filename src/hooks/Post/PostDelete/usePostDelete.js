@@ -8,8 +8,6 @@ export default function usePostDelete(pid) {
     try {
       const response = await api.delete("/post/" + pid);
       if (response.status === 204) {
-        const { data } = response;
-        console.log(data);
         navigate("/post/category");
       }
     } catch (error) {

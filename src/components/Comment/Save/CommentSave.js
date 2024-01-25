@@ -29,11 +29,14 @@ export default function CommentSave(props) {
 
     try {
       const response = await api.post("comment", params);
-      const { data } = response;
-      if (response.status === 200) {
-        console.log(data);
+      if (response.status === 201) {
+        if (props.finalEmpty) {
+          props.setCurrentPage(props.totalPage + 1);
+        } else  {
+          props.addTotalElements(1);
+          props.setCurrentPage(props.totalPage);
+        }
         reset();
-        props.setIsSaved(!props.isSaved);
       }
     } catch (error) {
       console.log(error);

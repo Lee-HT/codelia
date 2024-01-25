@@ -3,26 +3,24 @@ import CommentSave from "components/Comment/Save/CommentSave";
 import Pagination from "components/Menu/Pagination/Pagination";
 import { useEffect, useState } from "react";
 import "./CommentDetail.css";
+import usePostGet from "hooks/Post/PostGet/usePostGet";
 
 export default function CommentDetail(props) {
   const pageLimit = 5;
+  const commentSize = 5;
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
-  const [isSaved, setIsSaved] = useState(false);
+  const { handleComment, comments, totalElements, addTotalElements } =
+    usePostGet(props.pid, setTotalPage);
 
   useEffect(() => {
-    console.log("commentDetail render");
-  }, [isSaved]);
+    handleComment(currentPage - 1, commentSize);
+    console.log("call comment API");
+  }, [handleComment, currentPage, totalElements]);
 
   return (
     <div className="comment-detail">
-      <CommentList
-        pid={props.pid}
-        currentPage={currentPage - 1}
-        size={5}
-        isSaved={isSaved}
-        setTotalPage={setTotalPage}
-      />
+      <CommentList comments={comments} addTotalElements={addTotalElements} />
       <Pagination
         limit={pageLimit}
         currentPage={currentPage}
@@ -31,9 +29,9 @@ export default function CommentDetail(props) {
       />
       <CommentSave
         pid={props.pid}
-        isSaved={isSaved}
-        setIsSaved={setIsSaved}
         totalPage={totalPage}
+        finalEmpty={totalElements % commentSize === 0}
+        addTotalElements={addTotalElements}
         setCurrentPage={setCurrentPage}
       />
     </div>
