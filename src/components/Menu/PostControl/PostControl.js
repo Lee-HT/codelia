@@ -1,7 +1,7 @@
+import usePostDelete from "hooks/Post/PostDelete/usePostDelete";
 import { useCallback, useEffect } from "react";
 import styled from "styled-components";
 import "./PostControl.css";
-import usePostDelete from "hooks/Post/PostDelete/usePostDelete";
 
 const Button = styled.button`
   font-size: 18px;

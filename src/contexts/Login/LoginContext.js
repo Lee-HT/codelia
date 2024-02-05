@@ -4,7 +4,7 @@ export const LoginContext = createContext();
 
 export default function LoginProvider({ children }) {
   const [userInfo, setUser] = useState({
-    isLogin: false,
+    isLogin: null,
     username: "",
     uid: null,
     email: "",

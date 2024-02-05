@@ -36,9 +36,10 @@ export default function HeaderMenu() {
               <UserInfo inputRef={Ref} isMenu={isMenu} setIsMenu={setIsMenu} />
             ) : null}
           </div>
-        ) : (
+        ) : null}
+        {userInfo.isLogin === false ? (
           <Button onClick={handleLogin}>Sign In</Button>
-        )}
+        ) : null}
       </div>
     </div>
   );

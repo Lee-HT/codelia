@@ -1,6 +1,6 @@
 import { LoginContext } from "contexts/Login/LoginContext";
 import useCommentDelete from "hooks/Comment/CommentDelete/useCommentDelete";
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 import styled from "styled-components";
 import "./CommentList.css";
 
@@ -13,7 +13,18 @@ const LineClamp = styled.div`
 
 export default function CommentList(props) {
   const { userInfo } = useContext(LoginContext);
-  const handleComment = useCommentDelete(props.addTotalElements);
+  const handleCommentDelete = useCommentDelete();
+  const deleteProcess = useCallback(
+    async (cid) => {
+      await handleCommentDelete(cid);
+      if (props.numberOfElements === 1) {
+        props.setCurrentPage(props.currentPage - 1);
+      } else {
+        await props.getComments();
+      }
+    },
+    [handleCommentDelete, props]
+  );
 
   return (
     <div className="container comment-list">
@@ -30,7 +41,7 @@ export default function CommentList(props) {
                   <button className="modify">수정</button>
                   <button
                     className="delete"
-                    onClick={() => handleComment(comment.cid)}
+                    onClick={() => deleteProcess(comment.cid)}
                   >
                     삭제
                   </button>

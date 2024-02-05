@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 export default function usePostGet(pid, setTotalPage) {
   const [comments, setComments] = useState([]);
   const [totalElements, setTotalElements] = useState(null);
+  const [numberOfElements, setNumberOfElements] = useState(null);
 
   const handleComment = useCallback(
     (currentPage, size) => {
@@ -18,33 +19,21 @@ export default function usePostGet(pid, setTotalPage) {
             setComments(data.contents);
             setTotalPage(data.totalPages);
             setTotalElements(data.totalElements);
+            setNumberOfElements(data.numberOfElements);
           }
         } catch (error) {
           console.log(error);
         }
       }
-
       getComments();
     },
     [pid, setTotalPage]
   );
 
-  const addTotalElements = useCallback((num) => {
-    setTotalElements(totalElements + num);
-  },[totalElements]);
-
-  const addComments = useCallback(
-    (data) => {
-      setComments([...comments, data]);
-    },
-    [setComments, comments]
-  );
-
   return {
     handleComment,
     comments,
-    addComments,
     totalElements,
-    addTotalElements,
+    numberOfElements,
   };
 }

@@ -10,9 +10,8 @@ export default function usePostLike(pid) {
         try {
           const params = { pid: pid, likes: likes };
           const response = await api.put("/post/likes", params);
-          if (response.status === 201) {
-            const { data } = response;
-            setLikeState(data.likes);
+          if (response.status === 201 || response.status === 204) {
+            setLikeState(likes);
           }
         } catch (error) {
           console.log(error);

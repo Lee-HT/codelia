@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function usePostDelete(pid) {
   const navigate = useNavigate();
-  const handlePost = useCallback(async () => {
+  const handlePostDelete = useCallback(async () => {
     try {
       const response = await api.delete("/post/" + pid);
       if (response.status === 204) {
@@ -14,5 +14,5 @@ export default function usePostDelete(pid) {
       console.log(error);
     }
   }, [pid, navigate]);
-  return handlePost;
+  return handlePostDelete;
 }

@@ -32,7 +32,6 @@ export default function MyProfile() {
 
     try {
       const response = await api.patch("user", params);
-      const { data } = response;
       if (response.status === 200) {
         setUserInfo("username",data.username)
         navigate("/");
