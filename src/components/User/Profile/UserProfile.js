@@ -43,7 +43,7 @@ export default function UserProfile(props) {
 
   return (
     <div className="user-profile" ref={ref}>
-      <Button className="user-menu-button" onClick={handleMenu}>
+      <Button className="user-menu-btn" onClick={handleMenu}>
         {props.username}
       </Button>
       {isMenu && <UserMenu uid={props.uid} height={"25px"} width={"120px"} />}

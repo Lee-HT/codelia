@@ -1,6 +1,6 @@
 import { api } from "API";
 import { LoginContext } from "contexts/Login/LoginContext";
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import "./CommentSave.css";
@@ -20,25 +20,34 @@ export default function CommentSave(props) {
     reset,
   } = useForm();
 
-  async function saveComments(data, event) {
-    event.preventDefault();
-    const { username, uid } = userInfo;
-    const pid = props.pid;
-    const params = { ...data, pid: pid, uid: uid, username: username };
-    console.log("data : " + JSON.stringify(params));
+  const saveComments = useCallback(
+    async (data, event) => {
+      event.preventDefault();
+      const { username, uid } = userInfo;
+      const pid = props.pid;
+      const params = { ...data, pid: pid, uid: uid, username: username };
+      console.log("data : " + JSON.stringify(params));
 
-    try {
-      const response = await api.post("comment", params);
-      const { data } = response;
-      if (response.status === 200) {
-        console.log(data);
-        reset();
-        props.setIsSaved(!props.isSaved);
+      try {
+        const response = await api.post("comment", params);
+        if (response.status === 201) {
+          if (props.emptySpace) {
+            await props.setCurrentPage(props.totalPage + 1);
+          } else {
+            if (props.currentPage === props.totalPage) {
+              props.getComments();
+            } else {
+              await props.setCurrentPage(props.totalPage);
+            }
+          }
+          reset();
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
-    }
-  }
+    },
+    [props, reset, userInfo]
+  );
 
   return (
     <section className="comment-save">

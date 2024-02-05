@@ -33,14 +33,7 @@ export default function UserInfo(props) {
   return (
     <div className="user-info-wrap">
       <img className="profile-img" alt="" />
-      <button
-        className="my-page-btn"
-        onClick={() => {
-          navigate("/my-profile");
-        }}
-      >
-        내 정보
-      </button>
+      <button className="my-page-btn" onClick={() => {navigate("/my-profile")}}>내 정보</button>
       <button className="logout-btn" onClick={handleLogout}>
         로그아웃
       </button>

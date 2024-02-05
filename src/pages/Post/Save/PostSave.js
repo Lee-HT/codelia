@@ -42,13 +42,12 @@ export default function PostSave() {
   async function savePost(data, event) {
     event.preventDefault();
     const params = { ...data };
-    console.log("data : " + JSON.stringify(params));
+    console.log("params : " + JSON.stringify(params));
 
     try {
       const response = await api.post("post", params);
-      const { data } = response;
-      if (response.status === 200) {
-        console.log(data);
+      if (response.status === 201) {
+        console.log(response);
         reset();
         navigate("/post/category");
       }

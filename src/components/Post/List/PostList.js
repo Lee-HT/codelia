@@ -26,8 +26,9 @@ export default function PostList(props) {
       try {
         const response = await api.get("post", { params });
         const { data } = response;
-        setTotalPage(data.totalPages);
         if (response.status === 200) {
+          console.log(data);
+          setTotalPage(data.totalPages);
           setPosts(data);
         }
       } catch (error) {

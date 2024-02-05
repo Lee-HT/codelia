@@ -1,27 +1,35 @@
 import CommentList from "components/Comment/List/CommentList";
 import CommentSave from "components/Comment/Save/CommentSave";
 import Pagination from "components/Menu/Pagination/Pagination";
-import { useEffect, useState } from "react";
+import usePostGet from "hooks/Post/PostGet/usePostGet";
+import { useCallback, useEffect, useState } from "react";
 import "./CommentDetail.css";
 
 export default function CommentDetail(props) {
   const pageLimit = 5;
+  const commentSize = 5;
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
-  const [isSaved, setIsSaved] = useState(false);
+  const { handleComment, comments, totalElements, numberOfElements } =
+    usePostGet(props.pid, setTotalPage);
+
+  const getComments = useCallback(() => {
+    handleComment(currentPage - 1, commentSize);
+    console.log("call comment API");
+  }, [handleComment, currentPage]);
 
   useEffect(() => {
-    console.log("commentDetail render");
-  }, [isSaved]);
+    getComments();
+  }, [getComments]);
 
   return (
     <div className="comment-detail">
       <CommentList
-        pid={props.pid}
-        currentPage={currentPage - 1}
-        size={5}
-        isSaved={isSaved}
-        setTotalPage={setTotalPage}
+        comments={comments}
+        getComments={getComments}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        numberOfElements={numberOfElements}
       />
       <Pagination
         limit={pageLimit}
@@ -31,10 +39,11 @@ export default function CommentDetail(props) {
       />
       <CommentSave
         pid={props.pid}
-        isSaved={isSaved}
-        setIsSaved={setIsSaved}
         totalPage={totalPage}
+        currentPage={currentPage}
+        emptySpace={totalElements % commentSize === 0}
         setCurrentPage={setCurrentPage}
+        getComments={getComments}
       />
     </div>
   );

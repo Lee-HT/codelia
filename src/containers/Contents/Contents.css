@@ -10,6 +10,7 @@
 .contents-area .main-area {
   flex-basis: 78%;
   background-color: lightblue;
+  padding: 15px;
 }
  .contents-area .sub-area{
   flex-basis: 10%;

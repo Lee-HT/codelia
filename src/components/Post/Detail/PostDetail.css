@@ -3,13 +3,49 @@
   flex-direction: column;
 }
 
+.post-wrap .title-area {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post-wrap .profile-img {
+  flex-basis: 5%;
+}
+
+.post-wrap .category {
+  flex-basis: 30%;
+}
+
+.post-wrap .username {
+  flex-basis: 25%;
+  font-size: 18px;
+  min-height: 30px;
+}
+
 .post-wrap .title {
-  font-size: 22px;
+  flex-basis: 100%;
+  font-size: 24px;
   min-height: 50px;
   background-color: aquamarine;
 }
 
-.post-wrap .contents {
+.post-wrap .setting {
+  flex-basis: 70%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: deepskyblue;
+}
+
+.setting .setting-icon {
+  flex-basis: calc(100% / 14);
+  height: 100%;
+  background-color: cornflowerblue;
+}
+
+.post-wrap .contents-area {
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   min-height: 400px;
   background-color: white;
 }
