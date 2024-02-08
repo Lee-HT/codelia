@@ -13,7 +13,14 @@ export default function Setting(props) {
 
   return (
     <div className="setting-area" ref={ref}>
-      <input type="button" className="img-btn" onClick={handleMenu} />
+      <button className="menu-btn" onClick={handleMenu}>
+        <img
+          className="menu-img"
+          src={process.env.PUBLIC_URL + "/Image/MenuIcon/Kebab.png"}
+          alt="Menu"
+          loading="lazy"
+        />
+      </button>
       {isMenu ? (
         <PostControl
           isMenu={isMenu}

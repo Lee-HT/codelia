@@ -1,0 +1,16 @@
+.like-area {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.like-area .like-img {
+  width: 25px;
+  height: 25px;
+}
+
+.like-area .count-display {
+  font-size: 16px;
+}
