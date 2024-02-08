@@ -16,7 +16,7 @@ export default function Setting(props) {
       <button className="menu-btn" onClick={handleMenu}>
         <img
           className="menu-img"
-          src={process.env.PUBLIC_URL + "/Image/MenuIcon/Kebab.png"}
+          src={process.env.PUBLIC_URL + "/Image/MenuIcon/KebabMenu.png"}
           alt="Menu"
           loading="lazy"
         />
