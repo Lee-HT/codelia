@@ -4,7 +4,7 @@ import "./LikeButton.css";
 import { useEffect } from "react";
 
 const Button = styled.button`
-  background-color: silver;
+background-color: ${(props) => props.isLike ? "lightskyblue" : "none"};
   height: 40%;
   border-radius: 20%;
   display: flex;
@@ -23,7 +23,7 @@ export default function LikeButton(props) {
 
   return (
     <div className="like-area">
-      <Button size={props.size} onClick={handleIsLike}>
+      <Button isLike={isLike} size={props.size} onClick={handleIsLike}>
         <img
           className="like-img"
           src={process.env.PUBLIC_URL + "/Image/MenuIcon/Like.png"}

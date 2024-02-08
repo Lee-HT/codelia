@@ -12,5 +12,6 @@
 }
 
 .like-area .count-display {
+  width: 20px;
   font-size: 16px;
 }
