@@ -27,15 +27,18 @@
   background-color: rgb(253, 188, 188);
   text-align: left;
   display: -webkit-box;
-  
 }
 
-.comment-modify {
+.comment .modify-box {
   height: 100%;
   font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
-.modify {
+.comment .modify {
   margin: 5% auto;
   width: 80%;
   height: 40%;
@@ -44,7 +47,7 @@
   background-color: lightgreen;
 }
 
-.delete {
+.comment .delete {
   margin: 5% auto;
   width: 80%;
   height: 40%;

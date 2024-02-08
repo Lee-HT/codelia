@@ -1,3 +1,4 @@
+import LikeButton from "components/Like/LikeButton";
 import { LoginContext } from "contexts/Login/LoginContext";
 import useCommentDelete from "hooks/Comment/CommentDelete/useCommentDelete";
 import { useCallback, useContext } from "react";
@@ -35,16 +36,22 @@ export default function CommentList(props) {
             <div className="col comment-contents">
               <LineClamp>{comment.contents}</LineClamp>
             </div>
-            <div className="col-1 comment-modify">
-              {userInfo.uid === comment.uid ? (
-                <div>
-                  <button className="modify">수정</button>
-                  <button
-                    className="delete"
-                    onClick={() => deleteProcess(comment.cid)}
-                  >
-                    삭제
-                  </button>
+            <div className="col-1" style={{height:"100%"}}>
+              {userInfo.isLogin ? (
+                <div style={{height:"100%"}}>
+                  {userInfo.uid === comment.uid ? (
+                    <div className="modify-box">
+                      <button className="modify">수정</button>
+                      <button
+                        className="delete"
+                        onClick={() => deleteProcess(comment.cid)}
+                      >
+                        삭제
+                      </button>
+                    </div>
+                  ) : (
+                    <LikeButton cid={comment.cid} uid={userInfo.uid}/>
+                  )}
                 </div>
               ) : null}
             </div>

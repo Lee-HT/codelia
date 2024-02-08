@@ -4,14 +4,12 @@
   position: relative;
 }
 
-.setting-area .img-btn {
-  background-image: url(D:\ReactProject\codelia\public\Image\MenuIcon\Kebab.png);
-  background-size: cover;
+.setting-area .menu-btn {
   background-color: transparent;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   border: none;
   width: 60%;
   height: 60%;
