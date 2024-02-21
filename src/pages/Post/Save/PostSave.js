@@ -1,4 +1,6 @@
-import { api, category } from "API";
+import { api } from "API";
+import useCategoryGroup from "hooks/Category/CategoryGroup/useCategoryGroup";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import ReactTextareaAutosize from "react-textarea-autosize";
@@ -32,6 +34,7 @@ const ErrorMessage = styled.div`
 
 export default function PostSave() {
   const navigate = useNavigate();
+  const { category, getCategory } = useCategoryGroup();
   const {
     register,
     handleSubmit,
@@ -49,12 +52,16 @@ export default function PostSave() {
       if (response.status === 201) {
         console.log(response);
         reset();
-        navigate("/post/category");
+        navigate("/post");
       }
     } catch (error) {
       console.log(error);
     }
   }
+
+  useEffect(() => {
+    getCategory();
+  }, [getCategory]);
 
   return (
     <div className="post-save">
@@ -80,10 +87,10 @@ export default function PostSave() {
               <option value={""} disabled hidden>
                 {"카테고리 선택"}
               </option>
-              {Object.values(category)?.map((ctg) => {
+              {Object.values(category)?.map(([id, parent, name]) => {
                 return (
-                  <option key={ctg} value={ctg}>
-                    {ctg}
+                  <option key={id} value={name}>
+                    {name}
                   </option>
                 );
               })}

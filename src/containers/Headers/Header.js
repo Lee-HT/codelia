@@ -19,6 +19,7 @@ export default function Header() {
       setUserInfo("isLogin",false);
     }
   }, [getUserInfo, setUserInfo]);
+  
   return (
     <header className="header">
       <div className="header-icon">
