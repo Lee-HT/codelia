@@ -33,9 +33,13 @@ export default function useTokenRefresh() {
         getUserInfo();
       }
     } catch (error) {
-      if (error.response.status === 401 || error.response.status === 403) {
-        setUserInfo("isLogin", false);
+      console.log(error);
+      if (error.response) {
+        if (error.response.status === 401 || error.response.status === 403) {
+          console.log("unauthorized")
+        }
       }
+      setUserInfo("isLogin", false);
     }
   }, [getUserInfo, setUserInfo]);
   return { getUserInfo, tokenRefresh };
