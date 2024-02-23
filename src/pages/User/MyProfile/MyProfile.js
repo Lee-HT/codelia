@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import "./MyProfile.css";
+import useLogout from "hooks/Logout/useLogout";
 
 const Button = styled.button``;
 
@@ -18,6 +19,7 @@ const ErrorMessage = styled.div`
 
 export default function MyProfile() {
   const { userInfo, setUserInfo } = useContext(LoginContext);
+  const { Logout } = useLogout;
   const {
     register,
     handleSubmit,
@@ -33,7 +35,7 @@ export default function MyProfile() {
     try {
       const response = await api.patch("user", params);
       if (response.status === 200) {
-        setUserInfo("username",data.username)
+        setUserInfo("username", data.username);
         navigate("/");
       }
     } catch (error) {
@@ -51,6 +53,7 @@ export default function MyProfile() {
       const { data } = response;
       if (response.status === 200) {
         console.log(data);
+        Logout();
       }
     } catch (error) {
       console.log(error);

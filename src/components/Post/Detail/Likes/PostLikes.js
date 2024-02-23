@@ -1,10 +1,12 @@
-import { api } from "API";
 import usePostLike from "hooks/Post/PostLike/usePostLike";
 import { useEffect } from "react";
 import styled from "styled-components";
 import "./PostLikes.css";
 
 const Button = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin: 4px;
   border: 0;
   border-radius: 3px;
@@ -13,23 +15,13 @@ const Button = styled.button`
 `;
 
 export default function PostLikes(props) {
-  const { likeState, setLikeState, handleLikes } = usePostLike(props.pid);
+  const { likeState, likeCount, getPostLike, getPostLikeCount, handleLikes } =
+    usePostLike(props.pid);
 
   useEffect(() => {
-    async function PostLikesState() {
-      try {
-        const response = await api.get("/post/" + props.pid + "/likes");
-        if (response.status === 200) {
-          const { data } = response;
-          console.log(data);
-          setLikeState(data.likes);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    PostLikesState();
-  }, [props.pid, setLikeState]);
+    getPostLike();
+    getPostLikeCount();
+  }, [getPostLike, getPostLikeCount]);
 
   return (
     <div className="post__likes">
@@ -37,13 +29,22 @@ export default function PostLikes(props) {
         color={likeState === false ? "rgba(255, 0, 0, 0.5)" : "white"}
         onClick={() => handleLikes(false)}
       >
-        싫어요
+        <img
+          title="싫어요 이미지"
+          alt="싫어요 이미지"
+          src={process.env.PUBLIC_URL + "/Image/MenuIcon/like.png"}
+        />
       </Button>
       <Button
         color={likeState === true ? "lawngreen" : "white"}
         onClick={() => handleLikes(true)}
       >
-        좋아요
+        <img
+          title="좋아요 이미지"
+          alt="좋아요 이미지"
+          src={process.env.PUBLIC_URL + "/Image/MenuIcon/like.png"}
+        />
+        {likeCount !== 0 ? <div className="count-area">{likeCount}</div> : null}
       </Button>
     </div>
   );

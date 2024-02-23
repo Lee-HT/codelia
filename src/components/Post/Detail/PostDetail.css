@@ -8,29 +8,31 @@
   flex-wrap: wrap;
 }
 
-.post-wrap .profile-img {
-  flex-basis: 5%;
+.post-wrap .profile {
+  width: 5%;
 }
 
 .post-wrap .category {
-  flex-basis: 30%;
-}
-
-.post-wrap .username {
-  flex-basis: 25%;
-  font-size: 18px;
-  min-height: 30px;
+  width: 30%;
+  overflow: hidden;
 }
 
 .post-wrap .title {
-  flex-basis: 100%;
+  width: 100%;
   font-size: 24px;
   min-height: 50px;
   background-color: aquamarine;
+  overflow: hidden;
+}
+
+.post-wrap .username {
+  width: 25%;
+  font-size: 18px;
+  min-height: 40px;
 }
 
 .post-wrap .setting {
-  flex-basis: 70%;
+  width: 70%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -38,7 +40,7 @@
 }
 
 .setting .setting-icon {
-  flex-basis: calc(100% / 14);
+  width: calc(100% / 14);
   height: 100%;
   background-color: cornflowerblue;
 }

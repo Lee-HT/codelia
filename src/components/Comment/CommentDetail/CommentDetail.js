@@ -1,7 +1,7 @@
 import CommentList from "components/Comment/List/CommentList";
 import CommentSave from "components/Comment/Save/CommentSave";
 import Pagination from "components/Menu/Pagination/Pagination";
-import usePostGet from "hooks/Post/PostGet/usePostGet";
+import useCommentGet from "hooks/Comment/CommentGet/useCommentGet";
 import { useCallback, useEffect, useState } from "react";
 import "./CommentDetail.css";
 
@@ -11,7 +11,7 @@ export default function CommentDetail(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
   const { handleComment, comments, totalElements, numberOfElements } =
-    usePostGet(props.pid, setTotalPage);
+    useCommentGet(props.pid, setTotalPage);
 
   const getComments = useCallback(() => {
     handleComment(currentPage - 1, commentSize);

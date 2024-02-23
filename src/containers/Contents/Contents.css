@@ -3,14 +3,20 @@
   background-color: rgb(127, 255, 155);
 }
 
-.contents-area .group-area{
- flex-basis: 12%;
+.contents-area .group-area {
+  flex-basis: 16%;
+  max-width: 16%;
 }
 
 .contents-area .main-area {
-  flex-basis: 78%;
+  flex-basis: 74%;
+  max-width: 74%;
   background-color: lightblue;
   padding: 15px;
+}
+.contents-area .sub-area {
+  flex-basis: 10%;
+  max-width: 10%;
 }
  .contents-area .sub-area{
   flex-basis: 10%;

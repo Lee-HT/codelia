@@ -1,9 +1,11 @@
 import { api } from "API";
 import useTokenRefresh from "hooks/Token/useTokenRefresh";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function useAxiosConfig() {
   const { tokenRefresh } = useTokenRefresh();
+  const navigate = useNavigate();
 
   const requestInterceptor = api.interceptors.request.use(
     (request) => {
@@ -16,7 +18,6 @@ export default function useAxiosConfig() {
     },
     (error) => {
       console.log(error);
-      return error;
       // return Promise.reject(error);
     }
   );
@@ -29,12 +30,24 @@ export default function useAxiosConfig() {
     async (error) => {
       console.log(error);
       const status = error.response.status;
-      const targetUrl = error.url;
-      if (targetUrl === "oauth2/userinfo" || status === 401 || status === 403) {
+      const targetUrl = error.config.url;
+
+      if (
+        status === 401 &&
+        targetUrl !== "/oauth2/token" &&
+        targetUrl !== "/oauth2/userinfo"
+      ) {
         await tokenRefresh();
+        const originalRequest = error.config;
+        if (sessionStorage.getItem("accessToken") != null) {
+          originalRequest.headers.Authorization =
+            sessionStorage.getItem("accessToken");
+          return api(originalRequest);
+        } else {
+          navigate("/login");
+        }
       }
-      return error;
-      // return Promise.reject(error);
+      return Promise.reject(error);
     }
   );
 

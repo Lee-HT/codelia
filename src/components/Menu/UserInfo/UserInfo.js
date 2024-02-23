@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./UserInfo.css";
 
 export default function UserInfo(props) {
-  const { resetUserInfo } = useContext(LoginContext);
+  const { userInfo, resetUserInfo } = useContext(LoginContext);
   const navigate = useNavigate();
   const handleLogout = useLogout(resetUserInfo);
   const handleMenuClose = useCallback(
@@ -32,7 +32,7 @@ export default function UserInfo(props) {
 
   return (
     <div className="user-info-wrap">
-      <img className="profile-img" alt="" />
+      <img className="profile-img" alt="profile-img" src={userInfo.profileImg} />
       <button className="my-page-btn" onClick={() => {navigate("/my-profile")}}>내 정보</button>
       <button className="logout-btn" onClick={handleLogout}>
         로그아웃

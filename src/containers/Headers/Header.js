@@ -1,24 +1,23 @@
 import Intro from "components/Intro/Intro";
+import useTokenRefresh from "hooks/Token/useTokenRefresh";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import HeaderMenu from "../../components/Menu/Header/HeaderMenu";
 import "./Header.css";
-import useTokenRefresh from "hooks/Token/useTokenRefresh";
-import { useContext, useEffect } from "react";
-import { LoginContext } from "contexts/Login/LoginContext";
 
 export default function Header() {
-  const { getUserInfo } = useTokenRefresh();
-  const { setUserInfo } = useContext(LoginContext);
+  const { getUserInfo, tokenRefresh } = useTokenRefresh();
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("header useEffect");
+    console.log("Header userInfo");
     if (sessionStorage.getItem("accessToken") !== null) {
       getUserInfo();
     } else {
-      setUserInfo("isLogin",false);
+      tokenRefresh();
     }
-  }, [getUserInfo, setUserInfo]);
+  }, [getUserInfo, tokenRefresh]);
+
   return (
     <header className="header">
       <div className="header-icon">

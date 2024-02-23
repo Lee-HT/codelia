@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: checkout release
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # touch 명령어로 빈 파일 생성
       # echo 명령어로 파일 덮어쓰기
@@ -27,11 +27,11 @@ jobs:
       - run: touch .env.production
       - run: echo "${{secrets.ENV_PRODUCTION}}" > .env.production
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: env.development
           path: ./.env.development
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: env.production
           path: ./.env.production

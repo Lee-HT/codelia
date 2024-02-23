@@ -1,39 +1,21 @@
 import { api } from "API";
 import { useCallback, useState } from "react";
 
-export default function usePostGet(pid, setTotalPage) {
-  const [comments, setComments] = useState([]);
-  const [totalElements, setTotalElements] = useState(null);
-  const [numberOfElements, setNumberOfElements] = useState(null);
+export default function usePostGet() {
+  const [post, setPost] = useState([]);
 
-  const handleComment = useCallback(
-    (currentPage, size) => {
-      const params = { page: currentPage, size: size };
-
-      async function getComments() {
-        try {
-          const response = await api.get("comment/post/" + pid, { params });
-          const { data } = response;
-          if (response.status === 200) {
-            console.log(data);
-            setComments(data.contents);
-            setTotalPage(data.totalPages);
-            setTotalElements(data.totalElements);
-            setNumberOfElements(data.numberOfElements);
-          }
-        } catch (error) {
-          console.log(error);
-        }
+  const getPost = useCallback(async (uid,pid) => {
+    try {
+      const response = await api.get("post/" + pid);
+      if (response.status === 200) {
+        const { data } = response;
+        console.log(data);
+        setPost(data);
+        uid.current = data.uid;
       }
-      getComments();
-    },
-    [pid, setTotalPage]
-  );
-
-  return {
-    handleComment,
-    comments,
-    totalElements,
-    numberOfElements,
-  };
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+  return { post, getPost };
 }
