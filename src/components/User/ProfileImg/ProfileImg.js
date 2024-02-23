@@ -10,7 +10,7 @@ const ProfileImage = styled.img`
 
 export default function ProfileImg(props) {
   return (
-    <div className="profile-img">
+    <div className="img-area">
       <ProfileImage
         title="my profile image"
         alt="my profile image"

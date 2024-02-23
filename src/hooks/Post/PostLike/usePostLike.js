@@ -3,39 +3,69 @@ import { useCallback, useState } from "react";
 
 export default function usePostLike(pid) {
   const [likeState, setLikeState] = useState(null);
+  const [likeCount, setLikeCount] = useState(null);
 
-  const handleLikes = useCallback(
-    (likes) => {
-      async function putApi(likes) {
-        try {
-          const params = { pid: pid, likes: likes };
-          const response = await api.put("/post/likes", params);
-          if (response.status === 201 || response.status === 204) {
-            setLikeState(likes);
-          }
-        } catch (error) {
-          console.log(error);
-        }
+  const getPostLikeCount = useCallback(async () => {
+    try {
+      const response = await api.get("/post/" + pid + "/likes/true/count");
+      if (response.status === 200) {
+        const { data } = response;
+        setLikeCount(data);
       }
-      async function deleteApi() {
-        try {
-          const response = await api.delete("/post/" + pid + "/likes");
-          if (response.status === 204) {
-            setLikeState(null);
-          }
-        } catch (error) {
-          console.log(error);
-        }
-      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [pid]);
 
-      if (likeState == null || likeState !== likes) {
-        putApi(likes);
-      } else {
-        deleteApi();
+  const getPostLike = useCallback(async () => {
+    try {
+      const response = await api.get("/post/" + pid + "/likes");
+      if (response.status === 200) {
+        const { data } = response;
+        setLikeState(data.likes);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [pid]);
+
+  const putApi = useCallback(
+    async (likes) => {
+      try {
+        const params = { pid: pid, likes: likes };
+        const response = await api.put("/post/likes", params);
+        if (response.status === 201 || response.status === 204) {
+          setLikeState(likes);
+        }
+      } catch (error) {
+        console.log(error);
       }
     },
-    [pid, likeState]
+    [pid]
   );
 
-  return { likeState, setLikeState, handleLikes };
+  const deleteApi = useCallback(async () => {
+    try {
+      const response = await api.delete("/post/" + pid + "/likes");
+      if (response.status === 204) {
+        setLikeState(null);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [pid]);
+
+  const handleLikes = useCallback(
+    async (likes) => {
+      if (likeState == null || likeState !== likes) {
+        await putApi(likes);
+      } else {
+        await deleteApi();
+      }
+      await getPostLikeCount();
+    },
+    [likeState, getPostLikeCount, putApi, deleteApi]
+  );
+
+  return { likeState, likeCount, getPostLike, getPostLikeCount, handleLikes };
 }

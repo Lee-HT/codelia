@@ -1,6 +1,12 @@
 .post__likes {
+  width: 100%;
   height: 40px;
   display: flex;
   flex-direction: row-reverse;
   padding-right: 75px;
+}
+
+.post__likes .count-area {
+  padding-left: 3px;
+  min-width: 15px;
 }
