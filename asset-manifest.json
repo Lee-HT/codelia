@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/codelia_react/static/css/main.90be6e24.css",
-    "main.js": "/codelia_react/static/js/main.51699053.js",
+    "main.css": "/codelia_react/static/css/main.a67b76dd.css",
+    "main.js": "/codelia_react/static/js/main.d3cc2567.js",
     "static/js/787.83187079.chunk.js": "/codelia_react/static/js/787.83187079.chunk.js",
     "index.html": "/codelia_react/index.html",
-    "main.90be6e24.css.map": "/codelia_react/static/css/main.90be6e24.css.map",
-    "main.51699053.js.map": "/codelia_react/static/js/main.51699053.js.map",
+    "main.a67b76dd.css.map": "/codelia_react/static/css/main.a67b76dd.css.map",
+    "main.d3cc2567.js.map": "/codelia_react/static/js/main.d3cc2567.js.map",
     "787.83187079.chunk.js.map": "/codelia_react/static/js/787.83187079.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.90be6e24.css",
-    "static/js/main.51699053.js"
+    "static/css/main.a67b76dd.css",
+    "static/js/main.d3cc2567.js"
   ]
 }
