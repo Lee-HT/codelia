@@ -32,7 +32,7 @@ export default function PostLikes(props) {
         <img
           title="싫어요 이미지"
           alt="싫어요 이미지"
-          src={process.env.PUBLIC_URL + "/Image/MenuIcon/like.png"}
+          src={process.env.PUBLIC_URL + "/Image/MenuIcon/Hate.png"}
         />
       </Button>
       <Button
@@ -42,7 +42,7 @@ export default function PostLikes(props) {
         <img
           title="좋아요 이미지"
           alt="좋아요 이미지"
-          src={process.env.PUBLIC_URL + "/Image/MenuIcon/like.png"}
+          src={process.env.PUBLIC_URL + "/Image/MenuIcon/Like.png"}
         />
         {likeCount !== 0 ? <div className="count-area">{likeCount}</div> : null}
       </Button>
