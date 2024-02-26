@@ -87,10 +87,10 @@ export default function PostSave() {
               <option value={""} disabled hidden>
                 {"카테고리 선택"}
               </option>
-              {Object.values(category)?.map(([id, parent, name]) => {
+              {Object.values(category)?.map((ctg) => {
                 return (
-                  <option key={id} value={name}>
-                    {name}
+                  <option key={ctg.id} value={ctg.name}>
+                    {ctg.name}
                   </option>
                 );
               })}

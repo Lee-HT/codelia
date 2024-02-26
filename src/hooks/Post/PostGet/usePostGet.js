@@ -4,7 +4,7 @@ import { useCallback, useState } from "react";
 export default function usePostGet() {
   const [post, setPost] = useState([]);
 
-  const getPost = useCallback(async (uid,pid) => {
+  const getPost = useCallback(async (uid, pid) => {
     try {
       const response = await api.get("post/" + pid);
       if (response.status === 200) {
@@ -17,5 +17,6 @@ export default function usePostGet() {
       console.log(error);
     }
   }, []);
+
   return { post, getPost };
 }

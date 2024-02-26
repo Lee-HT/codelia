@@ -1,42 +1,34 @@
-import { api } from "API";
 import Pagination from "components/Menu/Pagination/Pagination";
 import PostBar from "components/Post/Bar/PostBar";
+import usePostPageGet from "hooks/Post/PostPageGet/usePostPageGet";
 import { useCallback, useEffect, useState } from "react";
 import "./PostList.css";
 
+// props.notControl : 페이지네이션 여부
 export default function PostList(props) {
   const sizeList = [5, 10, 15, 20, 25, 30];
-
   const pageLimit = 5;
   const [currentPage, setCurrentPage] = useState(props.page + 1);
   const [totalPage, setTotalPage] = useState(0);
-  const [posts, setPosts] = useState([]);
   const [params, setParams] = useState({
     page: props.page,
     size: props.size,
   });
   const postHeight = props.height || "35px";
 
+  const { posts, getPostPage, getPostCategory } = usePostPageGet(setTotalPage);
+
   useEffect(() => {
     params.page = currentPage - 1;
   }, [params, currentPage]);
 
   useEffect(() => {
-    async function getPosts() {
-      try {
-        const response = await api.get("post", { params });
-        if (response.status === 200) {
-          const { data } = response;
-          console.log(data);
-          setTotalPage(data.totalPages);
-          setPosts(data);
-        }
-      } catch (error) {
-        console.log(error);
-      }
+    if (props.category) {
+      getPostCategory(params, props.category);
+    } else {
+      getPostPage(params);
     }
-    getPosts();
-  }, [params, currentPage]);
+  }, [currentPage, props.category, params, getPostCategory, getPostPage]);
 
   const setSize = useCallback((size) => {
     try {
