@@ -1,12 +1,12 @@
 import CommentList from "components/Comment/List/CommentList";
 import CommentSave from "components/Comment/Save/CommentSave";
-import Pagination from "components/Menu/Pagination/Pagination";
+import Paginations from "components/Menu/Pagination/Paginations";
 import useCommentGet from "hooks/Comment/CommentGet/useCommentGet";
 import { useCallback, useEffect, useState } from "react";
 import "./CommentDetail.css";
 
 export default function CommentDetail(props) {
-  const pageLimit = 5;
+  const limit = 5;
   const commentSize = 5;
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
@@ -31,11 +31,11 @@ export default function CommentDetail(props) {
         setCurrentPage={setCurrentPage}
         numberOfElements={numberOfElements}
       />
-      <Pagination
-        limit={pageLimit}
+      <Paginations
         currentPage={currentPage}
-        totalPage={totalPage}
         setCurrentPage={setCurrentPage}
+        totalPage={totalPage}
+        limit={limit}
       />
       <CommentSave
         pid={props.pid}

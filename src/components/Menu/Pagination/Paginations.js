@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from "react";
 import styled from "styled-components";
-import "./Pagination.css";
+import "./Paginations.css";
 
 const Button = styled.button`
   border: none;
@@ -9,14 +9,15 @@ const Button = styled.button`
 `;
 
 function reducer(state, action) {
-  const startNum = Math.ceil(action.currentPage / action.limit) * 5 - 4;
-  const counts = Math.min(action.totalPage, startNum + 4) - startNum + 1;
+  const limit = action.limit;
+  const startNum = (Math.ceil(action.currentPage / limit) - 1) * limit + 1;
+  const counts = Math.min(action.totalPage, startNum + limit -1 ) - startNum + 1;
   const numbers = new Array(counts).fill(startNum).map((v, i) => v + i);
   return {
     ...state,
     pageNumbers: numbers,
-    before: startNum - 5,
-    after: startNum + 5,
+    before: startNum - limit,
+    after: startNum + limit,
   };
 }
 
@@ -27,7 +28,7 @@ const initialState = {
 };
 
 // props : currentPage , setCurrentPage , totalPage , limit
-export default function Pagination(props) {
+export default function Paginations(props) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
