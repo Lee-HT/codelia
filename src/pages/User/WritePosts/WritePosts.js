@@ -2,15 +2,24 @@ import Paginations from "components/Menu/Pagination/Paginations";
 import PostBar from "components/Post/Bar/PostBar";
 import usePostsByUserGet from "hooks/Post/PostPageGet/usePostsByUserGet";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
-export default function UserInfo() {
+export default function WritePosts() {
   const pathParams = useSearchParams();
   const limit = 5;
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
+  const [params, setParams] = useState({
+    page: 0,
+    size: 0,
+  });
   const { posts, getPostPage } = usePostsByUserGet();
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    params.page = currentPage - 1;
+    console.log(pathParams);
+    getPostPage(params, pathParams.uid);
+  }, [params, currentPage, getPostPage, pathParams]);
 
   return (
     <div>
