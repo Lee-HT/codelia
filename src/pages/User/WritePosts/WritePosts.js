@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 export default function WritePosts() {
-  const pathParams = useSearchParams();
+  const [pathParams] = useSearchParams();
   const limit = 5;
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
@@ -17,8 +17,7 @@ export default function WritePosts() {
 
   useEffect(() => {
     params.page = currentPage - 1;
-    console.log(pathParams);
-    getPostPage(params, pathParams.uid);
+    getPostPage(params, pathParams.get("uid"));
   }, [params, currentPage, getPostPage, pathParams]);
 
   return (
