@@ -1,13 +1,14 @@
 import MainMenu from "components/Menu/Main/MainMenu";
 import SubMenu from "components/Menu/Sub/SubMenu";
+import PostDetail from "components/Post/Detail/PostDetail";
 import NotFound from "pages/Error/404error/NotFound";
 import Login from "pages/Login/Login";
-import PostDetail from "components/Post/Detail/PostDetail";
+import PostSave from "pages/Post/Save/PostSave";
+import Postview from "pages/Post/View/Postview";
 import Preview from "pages/Preview/Preview";
+import WritePosts from "pages/User/WritePosts/WritePosts";
 import { Route, Routes } from "react-router-dom";
 import "./Contents.css";
-import Postview from "pages/Post/View/Postview";
-import PostSave from "pages/Post/Save/PostSave";
 
 export default function Contents() {
   return (
@@ -19,8 +20,9 @@ export default function Contents() {
         <Routes>
           <Route path="/" element={<Preview />}></Route>
           <Route path="/post/save" element={<PostSave />}></Route>
-          <Route path="/post" element={<Postview />}></Route>
           <Route path="/post/:pid" element={<PostDetail />}></Route>
+          <Route path="/post/user" element={<WritePosts />}></Route>
+          <Route path="/post" element={<Postview />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/*" element={<NotFound />}></Route>
         </Routes>

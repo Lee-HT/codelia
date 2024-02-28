@@ -1,3 +1,5 @@
+import { useCallback } from "react";
+import { createSearchParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import "./UserMenu.css";
 
@@ -22,8 +24,8 @@ const Button = styled.button`
   border-radius: 3px;
   font-size: 13px;
   background-color: white;
-  
-  height: ${(props) => props.height || "100%"};
+
+  min-height: ${(props) => props.height || "100%"};
   width: ${(props) => props.width || "100%"};
 
   &:hover {
@@ -32,22 +34,29 @@ const Button = styled.button`
 `;
 
 export default function Usermenu(props) {
-  const buttons = ["유저 정보", "작성 게시글"];
+  const navigate = useNavigate();
+
+  const handleWritePosts = useCallback(() => {
+    const queryParams = { uid: props.uid };
+
+    navigate({
+      pathname: "/post/user",
+      search: `?${createSearchParams(queryParams)}`,
+    });
+  }, [navigate, props.uid]);
 
   return (
     <div className="user-menu">
       <Ul className="user-menu-contents">
-        {buttons?.map((button, index) => {
-          return (
-            <Li key={index}>
-              {
-                <Button uid={props.uid} height={props.height} width={props.width}>
-                  {button}
-                </Button>
-              }
-            </Li>
-          );
-        })}
+        <Li>
+          <Button
+            onClick={handleWritePosts}
+            height={props.height}
+            width={props.width}
+          >
+            작성 게시글
+          </Button>
+        </Li>
       </Ul>
     </div>
   );

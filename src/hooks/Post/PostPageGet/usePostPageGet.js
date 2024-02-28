@@ -10,7 +10,7 @@ export default function usePostPageGet(setTotalPage) {
       if (response.status === 200) {
         const { data } = response;
         console.log(data);
-        setPosts(data);
+        setPosts(data.contents);
         setTotalPage(data.totalPages);
       }
     } catch (error) {
@@ -24,7 +24,7 @@ export default function usePostPageGet(setTotalPage) {
       if (response.status === 200) {
         const { data } = response;
         console.log(data);
-        setPosts(data);
+        setPosts(data.contents);
         setTotalPage(data.totalPages);
       }
     } catch (error) {
