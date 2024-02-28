@@ -32,7 +32,7 @@ export default function PostBar(props) {
         {props.title}
       </Button>
       <div className="col-2 post-username">
-        <UserProfile username={props.username} $uid={props.uid} />
+        <UserProfile username={props.username} uid={props.uid} />
       </div>
       <div className="row col-2 post-info">
         <div className="post-created-date">{props.createdAt}</div>

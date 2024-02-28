@@ -1,7 +1,8 @@
 import Paginations from "components/Menu/Pagination/Paginations";
 import PostBar from "components/Post/Bar/PostBar";
+import SimpleProfile from "components/User/Profile/SimpleProfile";
 import usePostsByUserGet from "hooks/Post/PostPageGet/usePostsByUserGet";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 export default function WritePosts() {
@@ -9,19 +10,22 @@ export default function WritePosts() {
   const limit = 5;
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
-  const [params, setParams] = useState({
-    page: 0,
-    size: 0,
-  });
-  const { posts, getPostPage } = usePostsByUserGet();
+
+  const params = useMemo((currentPage) => {
+    return { page: currentPage - 1, size: 0 };
+  }, []);
+  const { posts, getPostPage, totalElements } = usePostsByUserGet(setTotalPage);
 
   useEffect(() => {
-    params.page = currentPage - 1;
     getPostPage(params, pathParams.get("uid"));
   }, [params, currentPage, getPostPage, pathParams]);
 
   return (
     <div>
+      <SimpleProfile
+        uid={pathParams.get("uid")}
+        totalElements={totalElements}
+      />
       {posts?.map((post) => {
         return (
           <PostBar

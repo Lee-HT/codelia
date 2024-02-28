@@ -28,6 +28,7 @@ export default function PostList(props) {
 
   useEffect(() => {
     params.page = currentPage - 1;
+    
     if (props.category) {
       getPostCategory(params, props.category);
     } else {
