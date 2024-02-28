@@ -27,7 +27,7 @@ export default function Header() {
               navigate("/");
             }}
           >
-            메인 화면 이동
+            Home Page
           </button>
         </div>
       </div>

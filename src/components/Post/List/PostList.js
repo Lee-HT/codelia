@@ -1,50 +1,40 @@
-import { api } from "API";
-import Pagination from "components/Menu/Pagination/Pagination";
+import Paginations from "components/Menu/Pagination/Paginations";
 import PostBar from "components/Post/Bar/PostBar";
+import usePostPageGet from "hooks/Post/PostPageGet/usePostPageGet";
 import { useCallback, useEffect, useState } from "react";
 import "./PostList.css";
 
+// props .page .size .height .category .notControl : 페이지네이션 여부
 export default function PostList(props) {
   const sizeList = [5, 10, 15, 20, 25, 30];
-
-  const pageLimit = 5;
+  const paginationLimit = 5;
   const [currentPage, setCurrentPage] = useState(props.page + 1);
   const [totalPage, setTotalPage] = useState(0);
-  const [posts, setPosts] = useState([]);
   const [params, setParams] = useState({
     page: props.page,
     size: props.size,
   });
   const postHeight = props.height || "35px";
 
-  useEffect(() => {
-    params.page = currentPage - 1;
-  }, [params, currentPage]);
+  const { posts, getPostPage, getPostCategory } = usePostPageGet(setTotalPage);
 
-  useEffect(() => {
-    async function getPosts() {
-      try {
-        const response = await api.get("post", { params });
-        if (response.status === 200) {
-          const { data } = response;
-          console.log(data);
-          setTotalPage(data.totalPages);
-          setPosts(data);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    getPosts();
-  }, [params, currentPage]);
-
-  const setSize = useCallback((size) => {
+  const handleParams = useCallback((key, size) => {
     try {
-      setParams((prev) => ({ ...prev, size: size }));
+      setParams((prev) => ({ ...prev, [key]: size }));
     } catch (error) {
       console.log(error);
     }
   }, []);
+
+  useEffect(() => {
+    params.page = currentPage - 1;
+    
+    if (props.category) {
+      getPostCategory(params, props.category);
+    } else {
+      getPostPage(params);
+    }
+  }, [params, currentPage, props.category, getPostCategory, getPostPage]);
 
   return (
     <div className="post-list">
@@ -53,7 +43,7 @@ export default function PostList(props) {
           <select
             className="post-size"
             value={params.size}
-            onChange={(event) => setSize(event.target.value)}
+            onChange={(event) => handleParams("size", event.target.value)}
           >
             {sizeList?.map((size) => {
               return (
@@ -66,7 +56,7 @@ export default function PostList(props) {
         </div>
       ) : null}
 
-      {posts?.contents?.map((post) => {
+      {posts?.map((post) => {
         return (
           <PostBar
             key={post.pid}
@@ -81,11 +71,11 @@ export default function PostList(props) {
         );
       })}
       {!props.notControl ? (
-        <Pagination
+        <Paginations
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           totalPage={totalPage}
-          limit={pageLimit}
+          limit={paginationLimit}
         />
       ) : null}
     </div>

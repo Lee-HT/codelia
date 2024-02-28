@@ -8,9 +8,9 @@ export default function useCategoryGroup() {
     try {
       const response = await api.get("category");
       if (response.status === 200) {
-        const { contents } = response.data;
-        console.log(contents);
-        setCategory(contents);
+        const { data } = response;
+        console.log(data);
+        setCategory(data);
       }
     } catch (error) {
       console.log(error);
