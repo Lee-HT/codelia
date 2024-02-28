@@ -2,7 +2,14 @@ import { LoginContext } from "contexts/Login/LoginContext";
 import useLogout from "hooks/Logout/useLogout";
 import { useCallback, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 import "./UserInfo.css";
+
+const Button = styled.button`
+  width: 40%;
+  height: 25%;
+  border-radius: 5px;
+`;
 
 export default function UserInfo(props) {
   const { userInfo, resetUserInfo } = useContext(LoginContext);
@@ -32,11 +39,26 @@ export default function UserInfo(props) {
 
   return (
     <div className="user-info-wrap">
-      <img className="profile-img" alt="profile-img" src={userInfo.profileImg} />
-      <button className="my-page-btn" onClick={() => {navigate("/my-profile")}}>내 정보</button>
-      <button className="logout-btn" onClick={handleLogout}>
-        로그아웃
-      </button>
+      <img
+        className="profile-img"
+        alt="profile-img"
+        src={userInfo.profileImg}
+      />
+      <Button
+        onClick={() => {
+          navigate("/my-profile");
+        }}
+      >
+        내 정보
+      </Button>
+      <Button
+        onClick={() => {
+          navigate("/post/user?uid=" + userInfo.uid);
+        }}
+      >
+        작성 게시글
+      </Button>
+      <Button onClick={handleLogout}>로그아웃</Button>
     </div>
   );
 }

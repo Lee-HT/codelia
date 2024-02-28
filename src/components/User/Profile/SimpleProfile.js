@@ -20,7 +20,9 @@ export default function SimpleProfile(props) {
 
   return (
     <div className="simple-profile">
-      <ProfileImg imgLink={user.profilePic} />
+      <div className="img-area">
+        <ProfileImg imgLink={user.profilePic} />
+      </div>
       <div className="profile-area">
         <div className="username">
           <UserProfile username={user.username} uid={user.uid} />
