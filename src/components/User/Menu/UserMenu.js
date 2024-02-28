@@ -31,6 +31,9 @@ const Button = styled.button`
   min-height: ${(props) => props.height || "100%"};
   width: ${(props) => props.width || "100%"};
 
+  min-height: ${(props) => props.height || "100%"};
+  width: ${(props) => props.width || "100%"};
+
   &:hover {
     text-decoration: underline;
   }
