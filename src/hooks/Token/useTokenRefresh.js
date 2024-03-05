@@ -20,6 +20,7 @@ export default function useTokenRefresh() {
       }
     } catch (error) {
       if (error.response.status === 401 || error.response.status === 403) {
+        setUserInfo("isLogin", false);
         console.log(error);
       }
     }
@@ -36,7 +37,7 @@ export default function useTokenRefresh() {
       console.log(error);
       if (error.response) {
         if (error.response.status === 401 || error.response.status === 403) {
-          console.log("unauthorized")
+          console.log("unauthorized");
         }
       }
       setUserInfo("isLogin", false);
