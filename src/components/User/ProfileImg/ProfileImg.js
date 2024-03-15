@@ -12,9 +12,10 @@ export default function ProfileImg(props) {
   return (
     <div className="img-area">
       <ProfileImage
-        title="my profile image"
-        alt="my profile image"
+        title="profile"
+        alt="profile"
         src={props.imgLink}
+        loading="lazy"
       />
     </div>
   );

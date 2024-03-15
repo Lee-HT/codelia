@@ -5,7 +5,7 @@ export default function Intro() {
     <div className="row intro">
       <img
         className="cover-image"
-        src={`${process.env.PUBLIC_URL}/Image/Intro/Intro.png`}
+        src={`${process.env.PUBLIC_URL}/Assets/Intro/Intro.png`}
         alt="Intro"
         loading="lazy"
       />

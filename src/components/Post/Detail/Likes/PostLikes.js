@@ -1,7 +1,8 @@
 import usePostLike from "hooks/Post/PostLike/usePostLike";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import styled from "styled-components";
 import "./PostLikes.css";
+import { LoginContext } from "contexts/Login/LoginContext";
 
 const Button = styled.button`
   display: flex;
@@ -15,13 +16,16 @@ const Button = styled.button`
 `;
 
 export default function PostLikes(props) {
+  const { userInfo } = useContext(LoginContext);
   const { likeState, likeCount, getPostLike, getPostLikeCount, handleLikes } =
     usePostLike(props.pid);
 
   useEffect(() => {
-    getPostLike();
+    if (userInfo.isLogin) {
+      getPostLike();
+    }
     getPostLikeCount();
-  }, [getPostLike, getPostLikeCount]);
+  }, [userInfo.isLogin, getPostLike, getPostLikeCount]);
 
   return (
     <div className="post__likes">
@@ -32,7 +36,7 @@ export default function PostLikes(props) {
         <img
           title="싫어요 이미지"
           alt="싫어요 이미지"
-          src={process.env.PUBLIC_URL + "/Image/MenuIcon/Hate.png"}
+          src={process.env.PUBLIC_URL + "/Assets/MenuIcon/Hate.png"}
         />
       </Button>
       <Button
@@ -42,7 +46,7 @@ export default function PostLikes(props) {
         <img
           title="좋아요 이미지"
           alt="좋아요 이미지"
-          src={process.env.PUBLIC_URL + "/Image/MenuIcon/Like.png"}
+          src={process.env.PUBLIC_URL + "/Assets/MenuIcon/Like.png"}
         />
         {likeCount !== 0 ? <div className="count-area">{likeCount}</div> : null}
       </Button>

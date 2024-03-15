@@ -4,6 +4,7 @@ import { useCallback, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import "./UserInfo.css";
+import { useTranslation } from "react-i18next";
 
 const Button = styled.button`
   width: 40%;
@@ -13,6 +14,7 @@ const Button = styled.button`
 
 export default function UserInfo(props) {
   const { userInfo, resetUserInfo } = useContext(LoginContext);
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const handleLogout = useLogout(resetUserInfo);
   const handleMenuClose = useCallback(
@@ -49,16 +51,16 @@ export default function UserInfo(props) {
           navigate("/my-profile");
         }}
       >
-        내 정보
+        {t("mypage")}
       </Button>
       <Button
         onClick={() => {
           navigate("/post/user?uid=" + userInfo.uid);
         }}
       >
-        작성 게시글
+        {t("writingPost")}
       </Button>
-      <Button onClick={handleLogout}>로그아웃</Button>
+      <Button onClick={handleLogout}>{t("logout")}</Button>
     </div>
   );
 }

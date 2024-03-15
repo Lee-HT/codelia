@@ -2,8 +2,8 @@ import useCategoryGroup from "hooks/Category/CategoryGroup/useCategoryGroup";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import UserInfo from "../../Action/InfoAction";
 import "./MainMenu.css";
+import InfoAction from "components/Action/InfoAction";
 
 const Parent = styled.div`
   border: 0;
@@ -58,7 +58,7 @@ export default function MainMenu() {
 
   return (
     <div className="main-menu">
-      <UserInfo />
+      <InfoAction />
       <Button
         style={{ marginLeft: "5%" }}
         onClick={() => {

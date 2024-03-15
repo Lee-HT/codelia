@@ -26,7 +26,7 @@ export default function LikeButton(props) {
       <Button isLike={isLike} size={props.size} onClick={handleIsLike}>
         <img
           className="like-img"
-          src={process.env.PUBLIC_URL + "/Image/MenuIcon/Like.png"}
+          src={process.env.PUBLIC_URL + "/Assets/MenuIcon/Like.png"}
           alt="Like Button"
           loading="lazy"
         ></img>

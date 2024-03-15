@@ -1,10 +1,17 @@
 .contents-container {
-  margin: 20px auto;
+  margin: 10px auto;
   max-height: fit-content;
   width: 100%;
 }
 
-.contents {
+.contents-container .control-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.contents-container .contents {
   overflow-wrap: anywhere;
   word-break: normal;
 }

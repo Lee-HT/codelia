@@ -1,13 +1,24 @@
 .header-menu {
+  width: 100%;
   height: 30px;
   max-height: 30px;
 }
 
 .header-menu .header-menu-box {
+  height: 100%;
   display: flex;
   flex-direction: row-reverse;
+  align-items: center;
 }
 
-.user-menu-wrap {
+.header-menu .user-menu-wrap {
   position: relative;
+}
+
+.header-menu .language-area {
+  margin-right: 20px;
+}
+
+.header-menu .language-menu {
+  height: 100%;
 }
