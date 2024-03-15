@@ -53,7 +53,6 @@ export default function useAxiosConfig() {
 
   useEffect(() => {
     return () => {
-      console.log("eject");
       api.interceptors.request.eject(requestInterceptor);
       api.interceptors.response.eject(responseInterceptor);
     };

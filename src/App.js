@@ -3,7 +3,7 @@ import LoginProvider from "contexts/Login/LoginContext";
 import LoginRedirect from "pages/Login/Redirect/LoginRedirect";
 import { createElement } from "react";
 import { Route, Routes } from "react-router-dom";
-
+import "./i18n";
 
 function ContextProvider({ contexts, children }) {
   return contexts.reduce(

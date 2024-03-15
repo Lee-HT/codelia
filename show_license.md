@@ -15,7 +15,6 @@ The MIT License (MIT)
 
 </details>
 
-
 #### Image
 
 Ayub Irawan
@@ -24,7 +23,7 @@ Flaticon License
 <details>
 <summary>Show</summary>
 
-/public/Image/MenuIcon/Kebab.png
+/public/Assets/MenuIcon/Kebab.png
 
 <!-- <a href="https://www.flaticon.com/free-icons/dots" title="dots icons">Dots icons created by Ayub Irawan - Flaticon</a> -->
 </details>
@@ -36,7 +35,7 @@ Flaticon License
 <details>
 <summary>Show</summary>
 
-/public/Image/MenuIcon/Like.png
+/public/Assets/MenuIcon/Like.png
 
 <!-- <a href="https://www.flaticon.com/free-icons/like" title="like icons">Like icons created by kliwir art - Flaticon</a> -->
 </details>
@@ -48,7 +47,19 @@ Flaticon License
 <details>
 <summary>Show</summary>
 
-/public/Image/MenuIcon/Hate.png
+/public/Assets/MenuIcon/Hate.png
 
 <!-- <a href="https://www.flaticon.com/kr/free-icons/-" title="같지 않은 아이콘">같지 않은 아이콘  제작자: Us and Up - Flaticon</a> -->
+</details>
+
+Freepik
+Flaticon License
+[homepage](https://www.flaticon.com/kr/free-icons/-)
+
+<details>
+<summary>Show</summary>
+
+/public/Assets/MenuIcon/Translate.png
+
+<!-- <a href="https://www.flaticon.com/kr/free-icons/" title="번역 아이콘">번역 아이콘  제작자: Freepik - Flaticon</a> -->
 </details>

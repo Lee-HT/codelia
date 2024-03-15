@@ -20,7 +20,7 @@ export default function useTokenRefresh() {
       }
     } catch (error) {
       if (error.response.status === 401 || error.response.status === 403) {
-        console.log(error);
+        setUserInfo("isLogin", false);
       }
     }
   }, [setUserInfo]);
@@ -33,13 +33,12 @@ export default function useTokenRefresh() {
         getUserInfo();
       }
     } catch (error) {
-      console.log(error);
-      if (error.response) {
-        if (error.response.status === 401 || error.response.status === 403) {
-          console.log("unauthorized")
-        }
+      if (
+        error.response && (error.response.status === 401 ||
+        error.response.status === 403)
+      ) {
+        setUserInfo("isLogin", false);
       }
-      setUserInfo("isLogin", false);
     }
   }, [getUserInfo, setUserInfo]);
   return { getUserInfo, tokenRefresh };

@@ -10,7 +10,6 @@ export default function Header() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("Header userInfo");
     if (sessionStorage.getItem("accessToken") !== null) {
       getUserInfo();
     } else {

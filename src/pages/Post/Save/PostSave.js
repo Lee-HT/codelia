@@ -84,7 +84,7 @@ export default function PostSave() {
               value={register.category}
               defaultValue={""}
             >
-              <option value={""} disabled hidden>
+              <option value={""} disabled>
                 {"카테고리 선택"}
               </option>
               {Object.values(category)?.map((ctg) => {
