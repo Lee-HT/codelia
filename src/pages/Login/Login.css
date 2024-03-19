@@ -7,7 +7,7 @@
 .login-area {
   width: 400px;
   height: 250px;
-  background-color: cornflowerblue;
+  background-color: rgba(128, 192, 255, 0.7);
   position: absolute;
   left: 50%;
   top: 50%;
@@ -21,6 +21,5 @@
 a {
   width: 200px;
   height: 40px;
-  background-color: lightpink;
   margin: 5px auto;
 }

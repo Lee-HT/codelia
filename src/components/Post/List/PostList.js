@@ -3,6 +3,13 @@ import PostBar from "components/Post/Bar/PostBar";
 import usePostPageGet from "hooks/Post/PostPageGet/usePostPageGet";
 import { useCallback, useEffect, useState } from "react";
 import "./PostList.css";
+import styled from "styled-components";
+
+const Desc = styled.div`
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+`;
 
 // props .page .size .height .category .notControl : 페이지네이션 여부
 export default function PostList(props) {
@@ -28,7 +35,7 @@ export default function PostList(props) {
 
   useEffect(() => {
     params.page = currentPage - 1;
-    
+
     if (props.category) {
       getPostCategory(params, props.category);
     } else {
@@ -55,6 +62,12 @@ export default function PostList(props) {
           </select>
         </div>
       ) : null}
+
+      <Desc className="menu-box">
+        <div className="category-size">카테고리</div>
+        <div className="title-size">제목</div>
+        <div className="username-size">작성 유저</div>
+      </Desc>
 
       {posts?.map((post) => {
         return (

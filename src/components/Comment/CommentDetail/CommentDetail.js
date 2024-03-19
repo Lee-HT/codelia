@@ -15,7 +15,6 @@ export default function CommentDetail(props) {
 
   const getComments = useCallback(() => {
     handleComment(currentPage - 1, commentSize);
-    console.log("call comment API");
   }, [handleComment, currentPage]);
 
   useEffect(() => {

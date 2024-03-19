@@ -1,13 +1,16 @@
 .comment-detail {
+  background-color: rgba(255, 192, 255, 0.25);
   padding-top: 50px;
   margin: auto;
-  border-top: 2px solid rgb(0, 0, 0, 0.2);
+  border-top: 1.5px solid rgb(0, 0, 0, 0.2);
 }
 .comment-list {
-    width: 80%;
+  background-color: white;
+  width: 80%;
 }
 
 .comment-save {
+  background-color: white;
   margin-top: 15px;
   width: 75%;
   height: 150px;

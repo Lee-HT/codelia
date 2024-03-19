@@ -4,9 +4,10 @@ import "./LikeButton.css";
 import { useEffect } from "react";
 
 const Button = styled.button`
-background-color: ${(props) => props.isLike ? "lightskyblue" : "none"};
+  background-color: ${(props) =>
+    props.isLike ? "rgba(128, 196, 256, 0.4)" : "none"};
   height: 40%;
-  border-radius: 20%;
+  border-radius: 3px;
   display: flex;
   justify-content: space-around;
 `;

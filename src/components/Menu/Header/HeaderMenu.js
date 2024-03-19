@@ -8,6 +8,7 @@ import "./HeaderMenu.css";
 
 const Button = styled.button`
   border: 0;
+  background-color: rgba(0, 128, 128, 0.15);
 `;
 
 export default function HeaderMenu() {

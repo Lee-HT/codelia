@@ -32,13 +32,13 @@ export default function CommentList(props) {
       {props.comments?.map((comment) => (
         <div className="comment" key={comment.cid}>
           <div id="comment-box" className="comment-box">
-            <div className="col-2 comment-username">{comment.cid}</div>
+            <div className="col-2 comment-username">{comment.username}</div>
             <div className="col comment-contents">
               <LineClamp>{comment.contents}</LineClamp>
             </div>
-            <div className="col-1" style={{height:"100%"}}>
+            <div className="col-1" style={{ height: "100%" }}>
               {userInfo.isLogin ? (
-                <div style={{height:"100%"}}>
+                <div style={{ height: "100%" }}>
                   {userInfo.uid === comment.uid ? (
                     <div className="modify-box">
                       <button className="modify">수정</button>
@@ -49,12 +49,15 @@ export default function CommentList(props) {
                         삭제
                       </button>
                     </div>
-                  ) : (
-                    <LikeButton cid={comment.cid} uid={userInfo.uid}/>
-                  )}
+                  ) : null}
                 </div>
               ) : null}
             </div>
+            <LikeButton
+              className="col-1"
+              cid={comment.cid}
+              uid={userInfo.uid}
+            />
           </div>
         </div>
       ))}

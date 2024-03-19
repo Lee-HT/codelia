@@ -11,7 +11,6 @@ const Button = styled.button`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border: 0;
 
   &:hover {
     text-decoration: underline;
@@ -26,17 +25,17 @@ export default function PostBar(props) {
   }
 
   return (
-    <PostDiv className="row border-1 rounded post-bar" height={props.height}>
-      <Button className="col-1 post-category-link">{props.category}</Button>
-      <Button className="col post-title-link" onClick={handlePost}>
+    <PostDiv className="menu-box rounded post-bar" height={props.height}>
+      <Button className="category-size category-link">{props.category}</Button>
+      <Button className="title-size title-link" onClick={handlePost}>
         {props.title}
       </Button>
-      <div className="col-2 post-username">
+      <div className="username-size username">
         <UserProfile username={props.username} uid={props.uid} />
       </div>
-      <div className="row col-2 post-info">
-        <div className="post-created-date">{props.createdAt}</div>
-        <div className="post-view-count">{props.view}</div>
+      <div className="information-size information">
+        <div className="created-date">{props.createdAt}</div>
+        <div className="view-count">{props.view}</div>
       </div>
     </PostDiv>
   );
