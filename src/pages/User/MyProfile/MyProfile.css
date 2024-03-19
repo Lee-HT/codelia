@@ -1,5 +1,5 @@
 .my-profile {
-  background-color: cornflowerblue;
+  background-color: white;
 }
 
 .my-profile h3 {
@@ -8,7 +8,7 @@
 }
 
 .my-profile .profile-box {
-  background-color: aquamarine;
+  background-color: white;
   height: 600px;
   display: flex;
   flex-direction: row;
@@ -16,7 +16,6 @@
 }
 
 .profile-box .profile-img-area {
-  background-color: beige;
   display: flex;
   justify-content: center;
   width: 30%;
@@ -30,7 +29,7 @@
 
 .my-profile .update-area {
   width: 60%;
-  background-color: chartreuse;
+  background-color: rgba(0, 0, 0, 0.1);
   font-size: 28px;
   display: flex;
   flex-direction: column;
@@ -40,7 +39,6 @@
 
 .update-area .username-area {
   padding: 10px;
-  background-color: darkseagreen;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -58,7 +56,6 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
-  background-color: darkkhaki;
 }
 
 .my-profile .delete-btn {

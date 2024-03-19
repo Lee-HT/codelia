@@ -7,6 +7,7 @@ import "./UserInfo.css";
 import { useTranslation } from "react-i18next";
 
 const Button = styled.button`
+  background-color: rgba(0,0,0,0.1);
   width: 40%;
   height: 25%;
   border-radius: 5px;

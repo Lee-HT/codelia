@@ -1,37 +1,64 @@
 .post-bar {
   margin: 5px auto;
-  background-color: rgb(169, 233, 233);
-  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   outline: 0;
 }
 
-.post-category-link {
+.menu-box {
+  display: flex;
+}
+
+.post-bar .category-link {
+  background-color: rgba(128, 192, 256, 0.2);
+  font-size: 14px;
+}
+
+.category-size {
+  width: 15%;
+}
+
+.post-bar .title-link {
   background-color: transparent;
-  font-size: 12px;
+  border-left: 1px solid rgba(0, 0, 0, 0.5);
+  border-right: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-.post-title-link {
-  background-color: lightsalmon;
+.title-size {
+  width: 55%;
 }
 
-.post-info {
+.username-size {
+  width: 15%;
+}
+
+.post-bar .information {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.post-created-date {
+.information-size {
+  width: 15%;
+  display: flex;
+}
+
+.post-bar .created-date {
   width: 70%;
+  max-width: 70%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 10px;
-  background-color: aquamarine;
+  font-size: 12px;
 }
 
-.post-view-count {
-  background-color: burlywood;
+.post-bar .view-count {
+  background-color: rgba(128, 192, 256, 0.2);
   width: 30%;
+  max-width: 30%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
 }

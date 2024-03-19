@@ -30,7 +30,7 @@ export default function PostLikes(props) {
   return (
     <div className="post__likes">
       <Button
-        color={likeState === false ? "rgba(255, 0, 0, 0.5)" : "white"}
+        color={likeState === false ? "rgba(255, 0, 0, 0.1)" : "white"}
         onClick={() => handleLikes(false)}
       >
         <img
@@ -40,7 +40,7 @@ export default function PostLikes(props) {
         />
       </Button>
       <Button
-        color={likeState === true ? "lawngreen" : "white"}
+        color={likeState === true ? "rgba(0, 255, 0, 0.1)" : "white"}
         onClick={() => handleLikes(true)}
       >
         <img

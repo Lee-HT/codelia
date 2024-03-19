@@ -3,8 +3,8 @@ import { useCallback, useState } from "react";
 
 export default function useCommentGet(pid, setTotalPage) {
   const [comments, setComments] = useState([]);
-  const [totalElements, setTotalElements] = useState(null);
-  const [numberOfElements, setNumberOfElements] = useState(null);
+  const [totalElements, setTotalElements] = useState(0);
+  const [numberOfElements, setNumberOfElements] = useState(0);
 
   const handleComment = useCallback(
     (currentPage, size) => {

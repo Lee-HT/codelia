@@ -86,7 +86,12 @@ export default function MyProfile() {
               <ErrorMessage>{errors.username?.message}</ErrorMessage>
             </div>
             <div className="commit-btn">
-              <Button type="submit">수정</Button>
+              <Button
+                style={{ "background-color": "rgba(128, 255, 192, 0.3)" }}
+                type="submit"
+              >
+                수정
+              </Button>
               <Button onClick={handleNavigate}>취소</Button>
             </div>
           </div>

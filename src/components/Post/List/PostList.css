@@ -5,7 +5,9 @@
   align-items: center;
 }
 
-.post-size{
-  width: 50px;
+.post-size {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  width: 55px;
   height: 35px;
 }

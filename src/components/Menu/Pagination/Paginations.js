@@ -5,13 +5,14 @@ import "./Paginations.css";
 const Button = styled.button`
   border: none;
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.1);
 `;
 
 function reducer(state, action) {
   const limit = action.limit;
   const startNum = (Math.ceil(action.currentPage / limit) - 1) * limit + 1;
-  const counts = Math.min(action.totalPage, startNum + limit -1 ) - startNum + 1;
+  const counts =
+    Math.min(action.totalPage, startNum + limit - 1) - startNum + 1;
   const numbers = new Array(counts).fill(startNum).map((v, i) => v + i);
   return {
     ...state,

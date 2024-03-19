@@ -14,12 +14,12 @@ const WritingHeader = styled.div`
   text-align: start;
   border-bottom: 1px solid;
   display: flex;
-  background-color: darkkhaki;
 `;
 
 const Button = styled.button`
   border: none;
   border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.1);
 
   &:hover {
     text-decoration: underline;

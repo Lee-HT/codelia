@@ -6,7 +6,7 @@
   height: 150px;
   width: 250px;
   right: 0;
-  background-color: darkcyan;
+  background-color: white;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.4);
   display: flex;
@@ -20,7 +20,6 @@
   width: 120px;
   height: 120px;
   border-radius: 35%;
-  background-color: white;
 }
 
 .user-info-wrap .my-page-btn {
@@ -29,6 +28,3 @@
   border-radius: 5px;
 }
 
-.user-info-wrap .logout-btn {
-  
-}

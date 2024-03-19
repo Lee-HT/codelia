@@ -11,7 +11,6 @@
   margin-left: auto;
   width: 30%;
   height: 100%;
-  background-color: darkseagreen;
   display: flex;
   flex-direction: row-reverse;
 }
@@ -21,7 +20,6 @@
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   width: 100%;
-  background-color: lightcyan;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -41,11 +39,15 @@
   border-radius: 3px;
   font-size: 20px;
 }
+.post-save .set-category:focus {
+  outline: 0px;
+}
 
 .post-save .title-area {
   margin-top: 20px;
   margin-bottom: 20px;
   width: 75%;
+  border-radius: 5px;
   font-size: 20px;
   padding: 12px;
   outline: 1px solid rgba(0, 0, 0, 0.4);
@@ -56,10 +58,14 @@
 }
 
 .post-save .set-title:focus {
-  outline: 1px solid;
+  outline: 0px;
 }
 
 .post-save .set-contents {
   margin: 20px auto;
   width: 90%;
+}
+
+.post-save .set-contents:focus {
+  outline: 0px;
 }

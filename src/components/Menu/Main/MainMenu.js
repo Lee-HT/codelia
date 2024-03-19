@@ -6,24 +6,25 @@ import "./MainMenu.css";
 import InfoAction from "components/Action/InfoAction";
 
 const Parent = styled.div`
-  border: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   background-color: white;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   margin-top: 5px;
   padding-left: 2%;
   text-align: start;
+  background-color: rgba(64, 64, 64, 0.15);
 `;
 
 const Button = styled.button`
-  border: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: rgba(64, 64, 64, 0.15);
   border-radius: 5px;
-  background-color: white;
   margin-top: 5px;
   padding-left: 5px;
   overflow: hidden;
-  font-size: 14px;
+  font-size: 16px;
 
   &:hover {
     text-decoration: underline;
@@ -31,7 +32,6 @@ const Button = styled.button`
 `;
 
 const Ul = styled.ul`
-  background-color: cornflowerblue;
   list-style: none;
   margin: 0 auto;
   padding-left: 0;

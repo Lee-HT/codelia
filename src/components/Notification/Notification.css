@@ -2,8 +2,8 @@
   width: 400px;
   height: 200px;
   border-style: solid;
-  border-color: lightskyblue;
-  background-color: lightpink;
+  border-color: rgba(135, 206, 250, 0.6);
+  background-color: rgba(255, 182, 193, 0.6);
 
   display: flex;
   flex-direction: column;
@@ -13,4 +13,5 @@
 
 .notification-text {
   width: 100%;
+  font-size: 20px;
 }

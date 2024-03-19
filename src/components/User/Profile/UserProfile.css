@@ -9,5 +9,5 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  background-color: lightsteelblue;
+  background-color: rgba(128, 256, 192, 0.3);
 }

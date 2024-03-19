@@ -6,9 +6,9 @@ const Button = styled.button`
   margin-top: 10px;
   border: none;
   border-radius: 3px;
-  width: 100%;
+  width: 90%;
   height: 70%;
-  background-color: white;
+  background-color: rgba(32, 128, 128, 0.3);
 `;
 
 export default function InfoAction() {

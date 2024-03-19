@@ -1,5 +1,5 @@
 .comment-save {
-  border: 2px solid rgb(255, 184, 193);
+  border: 1.8px solid rgb(255, 184, 193, 0.8);
   border-radius: 10px;
   margin: auto;
   display: flex;
@@ -12,7 +12,7 @@
   text-align: start;
 }
 
-.comment-contents-area{
+.comment-contents-area {
   width: 95%;
   height: 80px;
   resize: none;
@@ -21,29 +21,29 @@
   border-radius: 10px;
 }
 
-.comment-save .comment-command-area{
+.comment-save .comment-command-area {
   display: flex;
   justify-content: space-between;
 }
 
-.comment-save .submit-area{
+.comment-save .submit-area {
   display: flex;
   justify-content: flex-end;
   margin-right: 15px;
 }
 
-.comment-submit{
+.comment-submit {
   font-size: small;
-  background-color: palegreen;
+  background-color: rgb(144, 238, 144, 0.6);
   width: 80px;
   height: 25px;
   border: none;
   border-radius: 5px;
 }
 
-.comment-submit-cancel{
+.comment-submit-cancel {
   font-size: small;
-  background-color: antiquewhite;
+  background-color: rgba(0, 0, 0, 0.1);
   width: 80px;
   height: 25px;
   border: none;
