@@ -32,8 +32,8 @@ export default function PostContents(props) {
         <Button onClick={handleTraslate} isTrans={isTraslate}>
           <Image
             title="translate"
+            src={process.env.PUBLIC_URL + "/Assets/MenuIcon/Translate.png"}
             alt="translate"
-            src={process.env.PUBLIC_URL + "/Assets/MenuIcon/translage.png"}
             loading="lazy"
           ></Image>
         </Button>
