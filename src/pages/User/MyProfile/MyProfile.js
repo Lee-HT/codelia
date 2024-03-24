@@ -29,12 +29,12 @@ export default function MyProfile() {
 
   async function updateUser(data, event) {
     event.preventDefault();
-    const params = { ...data };
+    const params = { ...data, uid: userInfo.uid };
     console.log("data : " + JSON.stringify(params));
 
     try {
       const response = await api.patch("user", params);
-      if (response.status === 200) {
+      if (response.status === 204) {
         setUserInfo("username", data.username);
         navigate("/");
       }
@@ -87,7 +87,7 @@ export default function MyProfile() {
             </div>
             <div className="commit-btn">
               <Button
-                style={{ "background-color": "rgba(128, 255, 192, 0.3)" }}
+                style={{ "backgroundColor": "rgba(128, 255, 192, 0.4)" }}
                 type="submit"
               >
                 수정
