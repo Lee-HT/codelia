@@ -29,7 +29,7 @@
 
 .my-profile .update-area {
   width: 60%;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 128, 128, 0.1);
   font-size: 28px;
   display: flex;
   flex-direction: column;
