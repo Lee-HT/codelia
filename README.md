@@ -2,7 +2,7 @@
 
 ### 개인 프로젝트
 
-### 배포 URL
+### 배포 URL (현재 종료)
 
 #### https://lee-ht.github.io/codelia_react/
 
